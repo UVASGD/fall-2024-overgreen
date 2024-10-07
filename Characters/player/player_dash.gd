@@ -26,7 +26,7 @@ func set_constants(dash_speed_in: float, dash_time_in: float, dashes_in: float) 
 
 # returns if player can dash
 func _get_dash() -> bool:
-	return dash_charges >= 1.0 && player.direction != Vector2.ZERO
+	return dash_charges >= 1.0 && player.direction != Vector2.ZERO && dashing == false
 
 # dash tick
 func tick() -> void:
