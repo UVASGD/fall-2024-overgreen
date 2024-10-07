@@ -58,6 +58,7 @@ func dash() -> void:
 		# regain control 30 ms before dash ends or if dashes into floor
 		if dash_time - elapsed_time < 0.03 || player.is_on_floor() && elapsed_time > 0.1:
 			emit_signal("lock_movement", false)
+	emit_signal("lock_movement", false)
 	dashing = false
 
 func speed_at_time(t: float, v0: float, vf: float, T: float) -> float:
