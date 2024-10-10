@@ -18,8 +18,6 @@ func _ready():
 	var dash_node = player.get_node("PlayerDash")
 	dash_node.connect("lock_movement", Callable(self, "_on_lock_signal"))
 func tick(delta):
-	if player == null:
-		return
 	if lock:
 		player.move_and_slide()
 		return
@@ -40,7 +38,7 @@ func tick(delta):
 	# as good practice, you should replace UI actions with custom gameplay actions
 	player.direction = Input.get_vector("left", "right", "up", "down")
 	player.velocity.x = move_toward(player.velocity.x, 0, player.speed)
-	player.velocity.x = player.direction.x * player.speed
+	player.velocity.x = sign(player.direction.x) * player.speed # project vector to x axis with sign()
 	player.move_and_slide()
 
 func jump():
