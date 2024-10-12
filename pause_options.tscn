@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://s4sxgwrmwdsg"]
+[gd_scene load_steps=8 format=3 uid="uid://c7egb0uo3d0wf"]
 
-[ext_resource type="Script" path="res://pause_menu.gd" id="1_5um6b"]
-[ext_resource type="Shader" path="res://pause-menu.gdshader" id="2_fgmx2"]
+[ext_resource type="Shader" path="res://pause-menu.gdshader" id="2_pj4uj"]
+[ext_resource type="Script" path="res://pause_options.gd" id="3_1tkcx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dw5wx"]
-shader = ExtResource("2_fgmx2")
+shader = ExtResource("2_pj4uj")
 shader_parameter/lod = 0.0
 
 [sub_resource type="Animation" id="Animation_hqcvt"]
@@ -223,7 +223,7 @@ _data = {
 "options": SubResource("Animation_5lhtq")
 }
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseOptions" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchor_right = 0.163
@@ -232,7 +232,7 @@ offset_right = 0.223999
 offset_bottom = 0.00799561
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5um6b")
+script = ExtResource("3_1tkcx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_dw5wx")
@@ -240,7 +240,7 @@ layout_mode = 2
 offset_right = 354.0
 offset_bottom = 215.0
 
-[node name="pause" type="PanelContainer" parent="."]
+[node name="option" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 79.0
@@ -248,38 +248,20 @@ offset_top = 36.0
 offset_right = 198.0
 offset_bottom = 102.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="pause"]
+[node name="VBoxContainer" type="VBoxContainer" parent="option"]
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="pause/VBoxContainer"]
+[node name="Back" type="Button" parent="option/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
-text = "Resume"
+text = "Back
+"
 
-[node name="Options" type="Button" parent="pause/VBoxContainer"]
-process_mode = 2
-layout_mode = 2
-text = "Options"
-
-[node name="Quit" type="Button" parent="pause/VBoxContainer"]
-process_mode = 2
-layout_mode = 2
-text = "Quit"
-
-[node name="Exit to Main Menu" type="Button" parent="pause/VBoxContainer"]
-process_mode = 2
-layout_mode = 2
-text = "Exit to Main Menu"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xipfo")
 }
 
-[connection signal="pressed" from="pause/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="pause/VBoxContainer/Resume" to="." method="_on_graphics_pressed"]
-[connection signal="pressed" from="pause/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="pause/VBoxContainer/Quit" to="." method="_on_exit_to_main_menu_pressed"]
-[connection signal="pressed" from="pause/VBoxContainer/Quit" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="pause/VBoxContainer/Exit to Main Menu" to="." method="_on_exit_to_main_menu_pressed"]
-[connection signal="pressed" from="pause/VBoxContainer/Exit to Main Menu" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="option/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="option/VBoxContainer/Back" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="option/VBoxContainer/Back" to="." method="_on_graphics_pressed"]
