@@ -31,3 +31,4 @@ func _on_exit_to_main_menu_pressed() -> void:
 	
 func _on_options_pressed() -> void:
 	$AnimationPlayer.play("options")
+	
