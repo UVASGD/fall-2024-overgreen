@@ -8,10 +8,10 @@ class_name Player
 @export var dash_time: float = 0.25;
 @export var dash_num_charges: float = 2.0;
 
-# Remove @onready and initialize the variables in _ready()
 var animation_handler: SpriteAnimation
 var dash_handler: PlayerDash
 var basic_movement_handler: PlayerBasicMovement
+var input_buffer_manager: InputBufferManager
 
 func _ready():
 	animation_handler = SpriteAnimation.new($AnimatedSprite2D)
@@ -20,9 +20,12 @@ func _ready():
 	dash_handler.set_constants(dash_speed, dash_time, dash_num_charges)
 	basic_movement_handler = PlayerBasicMovement.new()
 	basic_movement_handler.name = "PlayerBasicMovement"
+	input_buffer_manager = InputBufferManager.new()
+	input_buffer_manager.name = "InputBufferManager"
 	# add to scene tree
 	add_child(dash_handler)
 	add_child(basic_movement_handler)
+	add_child(input_buffer_manager)
 
 
 var direction: Vector2 = Vector2.ZERO
@@ -30,9 +33,10 @@ var direction: Vector2 = Vector2.ZERO
 func _physics_process(delta):
 	basic_movement_handler.tick(delta)
 	dash_handler.tick()
+	input_buffer_manager.tick(delta)
 
 func _process(_delta):
 	animation_handler.tick(direction)
 
-func land():
-	animation_handler.set_state("jump_end")
+# func land():
+# 	animation_handler.set_state("jump_end")

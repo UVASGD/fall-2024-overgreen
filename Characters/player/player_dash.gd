@@ -2,10 +2,10 @@ extends Node
 
 class_name PlayerDash
 
-signal lock_movement(lock)
+signal lock_movement(lock: bool)
+signal set_anim(state: String, interupt: bool)
 
 var player: Player
-var anim: SpriteAnimation
 
 # fullness of dash bars
 var dash_charges: float

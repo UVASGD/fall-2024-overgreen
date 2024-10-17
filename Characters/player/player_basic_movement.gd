@@ -2,7 +2,8 @@ extends Node
 
 class_name PlayerBasicMovement
 
-signal lock_movement(lock)
+signal lock_movement(lock: bool)
+signal set_anim(state: String, interupt: bool)
 
 var player: Player
 var lock: bool
@@ -26,8 +27,10 @@ func tick(delta):
 		player.velocity.y += gravity * delta
 		was_in_air = true
 	elif was_in_air:
-		# todo: change to signal method
-		player.land()
+		# player.land()
+		#TODO: make signal to sprite_anim
+
+		
 		was_in_air = false
 	# handle jump
 	if Input.is_action_just_pressed("jump"):
