@@ -16,8 +16,8 @@ func _process(delta):
 func _on_timer_timeout():
 	$Timer.wait_time = 1.5
 	if trigger:
-		dir = Vector2.UP
+		dir = Vector2.LEFT
 		trigger = false
 	else:
-		dir = Vector2.DOWN
+		dir = Vector2.RIGHT
 		trigger = true

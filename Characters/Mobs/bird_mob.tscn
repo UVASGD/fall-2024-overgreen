@@ -1,13 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://c77vu71a3e5je"]
+[gd_scene load_steps=6 format=3 uid="uid://c77vu71a3e5je"]
 
 [ext_resource type="Script" path="res://bird_mob.gd" id="1_f273b"]
+[ext_resource type="Texture2D" uid="uid://cpwj52ufbae28" path="res://icon.svg" id="2_xw7ec"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_burpo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hhnwt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xw7ec")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k2ai8"]
+radius = 24.0
 
 [node name="BirdMob" type="CharacterBody2D"]
 script = ExtResource("1_f273b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_burpo")
+scale = Vector2(0.314453, 0.263672)
+sprite_frames = SubResource("SpriteFrames_hhnwt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_k2ai8")
+
+[node name="Timer" type="Timer" parent="."]
