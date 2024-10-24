@@ -4,6 +4,7 @@ class_name Player
 
 @export var speed: float = 125.0
 @export var jump_velocity: float = -150.0
+@export var double_jump_velocity: float = -150.0
 @export var dash_speed: float = 200;
 @export var dash_time: float = 0.25;
 @export var dash_num_charges: float = 2.0;
