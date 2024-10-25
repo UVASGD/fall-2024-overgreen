@@ -21,18 +21,22 @@ layout_mode = 2
 
 [node name="Start New" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Start New"
+focus_mode = 0
+text = "New Game"
 
 [node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Continue"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Options"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Exit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start New" to="." method="_on_start_new_pressed"]
