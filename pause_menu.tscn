@@ -423,8 +423,8 @@ libraries = {
 "": SubResource("AnimationLibrary_xipfo")
 }
 
-[connection signal="pressed" from="pause/pauseContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="pause/pauseContainer/Resume" to="." method="_on_graphics_pressed"]
+[connection signal="pressed" from="pause/pauseContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="pause/pauseContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="pause/pauseContainer/Exit to Main Menu" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="pause/pauseContainer/Exit to Main Menu" to="." method="_on_exit_to_main_menu_pressed"]
