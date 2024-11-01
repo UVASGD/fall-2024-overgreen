@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://s4sxgwrmwdsg"]
+[gd_scene load_steps=9 format=3 uid="uid://s4sxgwrmwdsg"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_5um6b"]
 [ext_resource type="Shader" path="res://pause-menu.gdshader" id="2_fgmx2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dw5wx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_og1m7"]
 shader = ExtResource("2_fgmx2")
-shader_parameter/lod = 0.738
+shader_parameter/lod = 0.7
 
 [sub_resource type="Animation" id="Animation_km343"]
 length = 0.001
@@ -124,12 +124,68 @@ tracks/9/keys = {
 tracks/10/type = "bezier"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/10/path = NodePath("quit:modulate:r")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.738, -0.05, 0, 0.05, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("quit:modulate:g")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("quit:modulate:b")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("quit:modulate:a")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("quit:top_level")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("ColorRect2:material:shader_parameter/lod")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.7, -0.05, 0, 0.05, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -195,12 +251,12 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/5/path = NodePath("ColorRect2:material:shader_parameter/lod")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0, 0.738, -0.05, 0, 0.05, 0),
+"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0, 0.7, -0.05, 0, 0.05, 0),
 "times": PackedFloat32Array(0, 0.1)
 }
 
@@ -320,11 +376,128 @@ tracks/9/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_iar3t"]
+resource_name = "quit"
+length = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pause:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pause:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pause:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pause:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("pause:top_level")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("quit:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("quit:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("quit:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("quit:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("quit:top_level")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xipfo"]
 _data = {
 "RESET": SubResource("Animation_km343"),
 "blur": SubResource("Animation_hqcvt"),
-"options": SubResource("Animation_5lhtq")
+"options": SubResource("Animation_5lhtq"),
+"quit": SubResource("Animation_iar3t")
 }
 
 [node name="PauseMenu" type="Control"]
@@ -338,17 +511,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5um6b")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_dw5wx")
-layout_mode = 2
-offset_right = 354.0
-offset_bottom = 215.0
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_og1m7")
+layout_mode = 0
+offset_right = 475.0
+offset_bottom = 269.0
 
 [node name="pause" type="PanelContainer" parent="."]
 process_mode = 2
 top_level = true
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -375,17 +548,11 @@ layout_mode = 2
 focus_mode = 0
 text = "Options"
 
-[node name="Exit to Main Menu" type="Button" parent="pause/pauseContainer"]
+[node name="Exit" type="Button" parent="pause/pauseContainer"]
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
-text = "Exit to Main Menu"
-
-[node name="Quit" type="Button" parent="pause/pauseContainer"]
-process_mode = 2
-layout_mode = 2
-focus_mode = 0
-text = "Quit"
+text = "Exit"
 
 [node name="option" type="PanelContainer" parent="."]
 top_level = true
@@ -418,18 +585,52 @@ layout_mode = 2
 focus_mode = 0
 text = "Go Fullscreen"
 
+[node name="quit" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.207
+anchor_top = -0.477
+anchor_right = -0.207
+anchor_bottom = -0.477
+offset_left = 76.916
+offset_top = 45.332
+offset_right = 207.416
+offset_bottom = 163.832
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="quitContainer" type="VBoxContainer" parent="quit"]
+layout_mode = 2
+
+[node name="To Main" type="Button" parent="quit/quitContainer"]
+process_mode = 2
+layout_mode = 2
+focus_mode = 0
+text = "Exit to Main Menu"
+
+[node name="Quit" type="Button" parent="quit/quitContainer"]
+process_mode = 2
+layout_mode = 2
+focus_mode = 0
+text = "Quit Game"
+
+[node name="Back2" type="Button" parent="quit/quitContainer"]
+process_mode = 2
+layout_mode = 2
+focus_mode = 0
+text = "Back"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xipfo")
 }
 
-[connection signal="pressed" from="pause/pauseContainer/Resume" to="." method="_on_graphics_pressed"]
 [connection signal="pressed" from="pause/pauseContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="pause/pauseContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="pause/pauseContainer/Exit to Main Menu" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="pause/pauseContainer/Exit to Main Menu" to="." method="_on_exit_to_main_menu_pressed"]
-[connection signal="pressed" from="pause/pauseContainer/Quit" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="pause/pauseContainer/Quit" to="." method="_on_exit_to_main_menu_pressed"]
-[connection signal="pressed" from="pause/pauseContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="pause/pauseContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="option/optionContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="option/optionContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="quit/quitContainer/To Main" to="." method="_on_to_main_pressed"]
+[connection signal="pressed" from="quit/quitContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="quit/quitContainer/Back2" to="." method="_on_back_2_pressed"]

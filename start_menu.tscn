@@ -37,7 +37,7 @@ text = "Options"
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-text = "Exit"
+text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start New" to="." method="_on_start_new_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]

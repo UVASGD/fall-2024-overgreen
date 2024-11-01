@@ -473,13 +473,16 @@ offset_bottom = 11.008
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="ColorRect" parent="CanvasLayer/PauseMenu" index="0"]
+[node name="ColorRect2" parent="CanvasLayer/PauseMenu" index="0"]
 visible = false
 
 [node name="pause" parent="CanvasLayer/PauseMenu" index="1"]
 visible = false
 
 [node name="option" parent="CanvasLayer/PauseMenu" index="2"]
+visible = false
+
+[node name="quit" parent="CanvasLayer/PauseMenu" index="3"]
 visible = false
 
 [editable path="CanvasLayer/PauseMenu"]
