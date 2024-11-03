@@ -587,6 +587,11 @@ texture = ExtResource("1_w8kyo")
 37:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 38:20/0 = 0
 38:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+4:1/0 = 0
+3:2/0 = 0
+5:1/0 = 0
+3:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_160p3"]
 physics_layer_0/collision_layer = 1
@@ -989,8 +994,8 @@ sources/1 = SubResource("TileSetAtlasSource_id15b")
 [node name="Forest-level" type="Node2D"]
 
 [node name="Forest-level-background" type="Sprite2D" parent="."]
-position = Vector2(613, 186.891)
-scale = Vector2(0.76164, 0.70691)
+position = Vector2(523.724, 233.5)
+scale = Vector2(0.650045, 0.603334)
 texture = ExtResource("1_ny88u")
 
 [node name="Forest-level-background" type="Sprite2D" parent="Forest-level-background"]
