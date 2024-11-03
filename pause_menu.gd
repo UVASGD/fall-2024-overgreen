@@ -36,8 +36,11 @@ func openOptions():
 	get_node("quit/quitContainer/Quit").disabled = true
 	get_node("quit/quitContainer/To Main").disabled = true
 	
-	get_node("option/optionContainer/Back").disabled = false
+	get_node("option/optionContainer/Controls").disabled = false
 	get_node("option/optionContainer/Fullscreen").disabled = false
+	get_node("option/optionContainer/musicSlider").editable = true
+	get_node("option/optionContainer/sfxSlider").editable = true
+	get_node("option/optionContainer/Back").disabled = false
 		
 func closeOptions():
 	$AnimationPlayer.play_backwards("options")
@@ -50,8 +53,11 @@ func closeOptions():
 	get_node("quit/quitContainer/Quit").disabled = true
 	get_node("quit/quitContainer/To Main").disabled = true
 	
-	get_node("option/optionContainer/Back").disabled = true
+	get_node("option/optionContainer/Controls").disabled = true
 	get_node("option/optionContainer/Fullscreen").disabled = true
+	get_node("option/optionContainer/musicSlider").editable = false
+	get_node("option/optionContainer/sfxSlider").editable = false
+	get_node("option/optionContainer/Back").disabled = true
 	
 func openQuit():
 	if firstQuit:
@@ -69,8 +75,11 @@ func openQuit():
 	get_node("quit/quitContainer/Quit").disabled = false
 	get_node("quit/quitContainer/To Main").disabled = false
 	
-	get_node("option/optionContainer/Back").disabled = true
+	get_node("option/optionContainer/Controls").disabled = true
 	get_node("option/optionContainer/Fullscreen").disabled = true
+	get_node("option/optionContainer/musicSlider").editable = false
+	get_node("option/optionContainer/sfxSlider").editable = false
+	get_node("option/optionContainer/Back").disabled = true
 	
 func closeQuit():
 	$AnimationPlayer.play_backwards("quit")
@@ -83,8 +92,11 @@ func closeQuit():
 	get_node("quit/quitContainer/Quit").disabled = true
 	get_node("quit/quitContainer/To Main").disabled = true
 	
-	get_node("option/optionContainer/Back").disabled = true
+	get_node("option/optionContainer/Controls").disabled = true
 	get_node("option/optionContainer/Fullscreen").disabled = true
+	get_node("option/optionContainer/musicSlider").editable = false
+	get_node("option/optionContainer/sfxSlider").editable = false
+	get_node("option/optionContainer/Back").disabled = true
 	
 func _process(delta: float) -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:

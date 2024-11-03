@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://s4sxgwrmwdsg"]
+[gd_scene load_steps=10 format=3 uid="uid://s4sxgwrmwdsg"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_5um6b"]
 [ext_resource type="Shader" path="res://pause-menu.gdshader" id="2_fgmx2"]
+[ext_resource type="PackedScene" uid="uid://db2cbpj1i0w6n" path="res://volume_slider.tscn" id="3_i6k1d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_og1m7"]
 shader = ExtResource("2_fgmx2")
@@ -558,19 +559,52 @@ text = "Exit"
 top_level = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = -68.0
-offset_right = 57.0
-offset_bottom = -2.0
+anchor_left = 0.488
+anchor_top = 0.462
+anchor_right = 0.488
+anchor_bottom = 0.462
+offset_left = -42.676
+offset_top = -8.37601
+offset_right = 70.324
+offset_bottom = 57.624
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.75, 0.75)
 
 [node name="optionContainer" type="VBoxContainer" parent="option"]
 layout_mode = 2
+
+[node name="Controls" type="Button" parent="option/optionContainer"]
+process_mode = 2
+layout_mode = 2
+focus_mode = 0
+text = "Controls"
+
+[node name="Fullscreen" type="Button" parent="option/optionContainer"]
+process_mode = 2
+layout_mode = 2
+focus_mode = 0
+text = "Go Fullscreen"
+
+[node name="Music" type="Label" parent="option/optionContainer"]
+process_mode = 2
+layout_mode = 2
+text = "Music"
+
+[node name="musicSlider" parent="option/optionContainer" instance=ExtResource("3_i6k1d")]
+process_mode = 2
+layout_mode = 2
+bus_name = "music"
+
+[node name="Sound Effects" type="Label" parent="option/optionContainer"]
+process_mode = 2
+layout_mode = 2
+text = "Sound Effects"
+
+[node name="sfxSlider" parent="option/optionContainer" instance=ExtResource("3_i6k1d")]
+process_mode = 2
+layout_mode = 2
+bus_name = "sfx"
 
 [node name="Back" type="Button" parent="option/optionContainer"]
 process_mode = 2
@@ -579,24 +613,18 @@ focus_mode = 0
 text = "Back
 "
 
-[node name="Fullscreen" type="Button" parent="option/optionContainer"]
-process_mode = 2
-layout_mode = 2
-focus_mode = 0
-text = "Go Fullscreen"
-
 [node name="quit" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.207
-anchor_top = -0.477
-anchor_right = -0.207
-anchor_bottom = -0.477
-offset_left = 76.916
-offset_top = 45.332
-offset_right = 207.416
-offset_bottom = 163.832
+anchor_left = -0.137
+anchor_top = -0.261
+anchor_right = -0.137
+anchor_bottom = -0.261
+offset_left = 45.256
+offset_top = 29.026
+offset_right = 194.256
+offset_bottom = 147.526
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -621,16 +649,67 @@ layout_mode = 2
 focus_mode = 0
 text = "Back"
 
+[node name="control" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -20.0
+offset_right = 122.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="control"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="controlContainer" type="VBoxContainer" parent="control/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="control/MarginContainer/controlContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="control/MarginContainer/controlContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputButton" type="Button" parent="control/MarginContainer/controlContainer/ScrollContainer/ActionList"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+focus_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="control/MarginContainer/controlContainer/ScrollContainer/ActionList/InputButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="control/MarginContainer/controlContainer/ScrollContainer/ActionList/InputButton/MarginContainer"]
+layout_mode = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xipfo")
 }
 
+[node name="musicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"music"
+
+[node name="sfxPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"sfx"
+
 [connection signal="pressed" from="pause/pauseContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="pause/pauseContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="pause/pauseContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="option/optionContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="option/optionContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="option/optionContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="quit/quitContainer/To Main" to="." method="_on_to_main_pressed"]
 [connection signal="pressed" from="quit/quitContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="quit/quitContainer/Back2" to="." method="_on_back_2_pressed"]
