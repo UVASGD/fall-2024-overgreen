@@ -15,34 +15,55 @@ extends CharacterBody2D
 var direction: Vector2 = Vector2.ZERO
 var theta: float
 var isGrappling
+var wasGrappling
 var radius: float = 100.0
 var gravity: float = 20.0
 var angAccel = 0
 var angVel = 0
+var t = 0
+var yvel
+var xvel
 
 func _ready():
-	theta = 180.0
+	theta = PI/2
 	isGrappling = false
+	wasGrappling = false
 
 func _physics_process(delta):
+	
 	if isGrappling == false:
-		angAccel = 0
-		angVel = 0
 		
-		basic_movement_handler.tick(delta)
+		#basic_movement_handler.tick(delta)
+		
+		if is_on_floor():
+			yvel = 0
+			xvel = 0
+			wasGrappling = false
+		
+		else:
+			if wasGrappling:
+				yvel = angVel * radius * cos(theta) * delta
+				xvel = -1 * angVel * radius * sin(theta + (PI/2)) * delta
+				position.y += yvel
+				#position.x += -1 * angVel * radius * sin(theta + (PI/2)) * delta
+				
 	else:
 		
 		angAccel = ang_accel()
-		angVel += angAccel * delta
+		angVel += 5 * angAccel * delta
 		theta += angVel * delta
 		
 		position = Vector2(radius * cos(theta + (PI/2)), radius * sin(theta + (PI/2)))
 		
 	
-		#print(theta)
-		#print(angaccel)
+	#print(is_on_floor())
+	#print(wasGrappling)
+	#print("xvel: " + str(xvel))
+	print("yvel: " + str(yvel))
+	#print(angVel)
 	
 	if Input.is_action_just_pressed("grappling"):
+		wasGrappling = isGrappling
 		isGrappling = !isGrappling
 		
 	animation_handler.tick(direction)
