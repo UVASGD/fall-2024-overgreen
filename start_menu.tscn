@@ -13,18 +13,17 @@ script = ExtResource("1_sn3hf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 0.467
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.467
-offset_left = -46.5
-offset_top = -64.116
-offset_right = 46.5
-offset_bottom = 106.884
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -73.5
+offset_right = 49.5
+offset_bottom = 73.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.75, 0.75)
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
@@ -36,26 +35,31 @@ layout_mode = 2
 [node name="Start New" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+theme_override_font_sizes/font_size = 12
 text = "New Game"
 
 [node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+theme_override_font_sizes/font_size = 12
 text = "Continue"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+theme_override_font_sizes/font_size = 12
 text = "Options"
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+theme_override_font_sizes/font_size = 12
 text = "Credits"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+theme_override_font_sizes/font_size = 12
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start New" to="." method="_on_start_new_pressed"]

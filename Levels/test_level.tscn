@@ -465,13 +465,6 @@ drag_vertical_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_x3u2m")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 21.224
-offset_bottom = 11.008
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="ColorRect2" parent="CanvasLayer/PauseMenu" index="0"]
 visible = false

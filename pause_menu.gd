@@ -31,6 +31,8 @@ func openOptions(fromControl):
 		
 	if !fromControl:
 		$AnimationPlayer.play("options")
+	if fromControl:
+		print("from control")
 	inOptions = true
 	get_node("pause/MarginContainer/pauseContainer/Resume").disabled = true
 	get_node("pause/MarginContainer/pauseContainer/Options").disabled = true
@@ -42,8 +44,8 @@ func openOptions(fromControl):
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = false
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = false
-	get_node("option/MarginContainer/optionContainer/musicSlider").editable = true
-	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = true
+	get_node("option/MarginContainer/optionContainer/HBoxContainer/musicSlider").editable = true
+	get_node("option/MarginContainer/optionContainer/HBoxContainer2/sfxSlider").editable = true
 	get_node("option/MarginContainer/optionContainer/Back").disabled = false
 	
 	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
@@ -61,8 +63,8 @@ func closeOptions():
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
-	get_node("option/MarginContainer/optionContainer/musicSlider").editable = false
-	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/HBoxContainer/musicSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/HBoxContainer2/sfxSlider").editable = false
 	get_node("option/MarginContainer/optionContainer/Back").disabled = true
 	
 	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
@@ -87,8 +89,8 @@ func openQuit():
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
-	get_node("option/MarginContainer/optionContainer/musicSlider").editable = false
-	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/HBoxContainer/musicSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/HBoxContainer2/sfxSlider").editable = false
 	get_node("option/MarginContainer/optionContainer/Back").disabled = true
 	
 	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
@@ -106,21 +108,23 @@ func closeQuit():
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
-	get_node("option/MarginContainer/optionContainer/musicSlider").editable = false
-	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/HBoxContainer/musicSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/HBoxContainer2/sfxSlider").editable = false
 	get_node("option/MarginContainer/optionContainer/Back").disabled = true
 	
 	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
 	
 func openControl():
-	$AnimationPlayer.play("controls")
 	inOptions = false
 	inControl = true
+	get_node("InputSettings").top_level = true
 	if firstControl:
 		get_node("InputSettings/PanelContainer").set_modulate(Color(255, 255, 255, 0))
 		get_node("InputSettings/PanelContainer").visible = true
 		firstControl = false
 		print("first controlled")
+		
+	$AnimationPlayer.play("controls")
 	
 	get_node("pause/MarginContainer/pauseContainer/Resume").disabled = true
 	get_node("pause/MarginContainer/pauseContainer/Options").disabled = true
@@ -132,8 +136,8 @@ func openControl():
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
-	get_node("option/MarginContainer/optionContainer/musicSlider").editable = false
-	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/HBoxContainer/musicSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/HBoxContainer2/sfxSlider").editable = false
 	get_node("option/MarginContainer/optionContainer/Back").disabled = true
 	
 	get_node("InputSettings").set_process_mode(PROCESS_MODE_ALWAYS)
@@ -142,7 +146,8 @@ func closeControl():
 	$AnimationPlayer.play_backwards("controls")
 	inControl = false
 	openOptions(true)
-	get_node("pause/MarginContainer/pauseContainer/Resume").disabled = true
+	get_node("InputSettings").top_level = false
+	"""get_node("pause/MarginContainer/pauseContainer/Resume").disabled = true
 	get_node("pause/MarginContainer/pauseContainer/Options").disabled = true
 	get_node("pause/MarginContainer/pauseContainer/Exit").disabled = true
 	
@@ -156,7 +161,7 @@ func closeControl():
 	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = true
 	get_node("option/MarginContainer/optionContainer/Back").disabled = false
 	
-	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
+	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)"""
 	
 func _process(delta: float) -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:

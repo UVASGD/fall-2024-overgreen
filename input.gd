@@ -7,12 +7,11 @@ var action_to_remap = null
 var remapping_button = null
 
 var input_actions = {
-	"up": "Move up",
-	"down": "Move down",
-	"left": "Move left",
-	"right": "Move right",
-	"jump": "Jump"
-	
+	"up": "Move Up",
+	"down": "Move Down",
+	"left": "Move Left",
+	"right": "Move Right",
+	"jump": "Jump",
 }
 
 func _ready():
