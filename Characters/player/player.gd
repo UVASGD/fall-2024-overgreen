@@ -23,9 +23,10 @@ var angVel = 0
 var t = 0
 var yvel
 var xvel
+var swingSpeed = 5
 
 func _ready():
-	theta = PI/2
+	theta = deg_to_rad(90)
 	isGrappling = false
 	wasGrappling = false
 
@@ -33,7 +34,7 @@ func _physics_process(delta):
 	
 	if isGrappling == false:
 		
-		#basic_movement_handler.tick(delta)
+		basic_movement_handler.tick(delta)
 		
 		if is_on_floor():
 			yvel = 0
@@ -42,15 +43,15 @@ func _physics_process(delta):
 		
 		else:
 			if wasGrappling:
-				yvel = angVel * radius * cos(theta) * delta
+				yvel = angVel * radius * cos(theta + (PI/2)) * delta
 				xvel = -1 * angVel * radius * sin(theta + (PI/2)) * delta
 				position.y += yvel
-				#position.x += -1 * angVel * radius * sin(theta + (PI/2)) * delta
+				position.x += xvel
 				
 	else:
 		
 		angAccel = ang_accel()
-		angVel += 5 * angAccel * delta
+		angVel += swingSpeed * angAccel * delta
 		theta += angVel * delta
 		
 		position = Vector2(radius * cos(theta + (PI/2)), radius * sin(theta + (PI/2)))
@@ -81,20 +82,6 @@ func _draw():
 
 
 
-#func move_towards_grapple(delta):
-	#var grapple_speed = 5
-	#var grapple_point = Vector2(0, 0)
-	#var direction = (grapple_point - global_position).normalized()
-	#velocity = direction * grapple_speed
-	#move_and_slide()
-#
-#func grapple(L, angleI, delta):
-	#theta = 0
-	#var vertical = Vector2(0, -L)
-	#var player_pos = Vector2(L * cos(theta), L * sin(theta))
-	#position = vertical
-	#
-	#theta = vertical.angle_to(player_pos)
 
 
 
