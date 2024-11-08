@@ -485,4 +485,12 @@ visible = false
 [node name="quit" parent="CanvasLayer/PauseMenu" index="3"]
 visible = false
 
+[node name="InputSettings" parent="CanvasLayer/PauseMenu" index="4"]
+process_mode = 4
+
+[node name="PanelContainer" parent="CanvasLayer/PauseMenu/InputSettings" index="0"]
+visible = false
+
 [editable path="CanvasLayer/PauseMenu"]
+[editable path="CanvasLayer/PauseMenu/InputSettings"]
+[editable path="CanvasLayer/PauseMenu/InputSettings/PanelContainer"]

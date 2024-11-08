@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://s4sxgwrmwdsg"]
+[gd_scene load_steps=12 format=3 uid="uid://s4sxgwrmwdsg"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_5um6b"]
 [ext_resource type="Shader" path="res://pause-menu.gdshader" id="2_fgmx2"]
 [ext_resource type="PackedScene" uid="uid://db2cbpj1i0w6n" path="res://volume_slider.tscn" id="3_i6k1d"]
+[ext_resource type="PackedScene" uid="uid://bvi37umd6qho6" path="res://input_settings.tscn" id="4_s2bf1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_og1m7"]
 shader = ExtResource("2_fgmx2")
@@ -10,21 +11,22 @@ shader_parameter/lod = 0.7
 
 [sub_resource type="Animation" id="Animation_km343"]
 length = 0.001
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("pause:modulate:r")
+tracks/0/path = NodePath("pause:top_level")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("pause:modulate:g")
+tracks/1/path = NodePath("InputSettings/PanelContainer:modulate:r")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -35,7 +37,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("pause:modulate:b")
+tracks/2/path = NodePath("InputSettings/PanelContainer:modulate:g")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -46,7 +48,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("pause:modulate:a")
+tracks/3/path = NodePath("InputSettings/PanelContainer:modulate:b")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -57,137 +59,25 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("option:modulate:r")
+tracks/4/path = NodePath("InputSettings/PanelContainer:modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("option:modulate:g")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("option:modulate:b")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("option:modulate:a")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("pause:top_level")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("option:top_level")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/10/type = "bezier"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("quit:modulate:r")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/11/type = "bezier"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("quit:modulate:g")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/12/type = "bezier"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("quit:modulate:b")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/13/type = "bezier"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("quit:modulate:a")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.05, 0, 0.05, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("quit:top_level")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("InputSettings/PanelContainer:top_level")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
-}
-tracks/15/type = "bezier"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("ColorRect2:material:shader_parameter/lod")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.7, -0.05, 0, 0.05, 0),
-"times": PackedFloat32Array(0)
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_hqcvt"]
@@ -259,6 +149,18 @@ tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.05, 0, 0.05, 0, 0.7, -0.05, 0, 0.05, 0),
 "times": PackedFloat32Array(0, 0.1)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("pause:top_level")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_5lhtq"]
@@ -487,16 +389,133 @@ tracks/9/path = NodePath("quit:top_level")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_8v68g"]
+resource_name = "controls"
+length = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("option:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("option:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("option:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("option:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("option:top_level")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("InputSettings/PanelContainer:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("InputSettings/PanelContainer:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("InputSettings/PanelContainer:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("InputSettings/PanelContainer:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.05, 0, 0.05, 0, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("InputSettings/PanelContainer:top_level")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xipfo"]
 _data = {
 "RESET": SubResource("Animation_km343"),
 "blur": SubResource("Animation_hqcvt"),
+"controls": SubResource("Animation_8v68g"),
 "options": SubResource("Animation_5lhtq"),
 "quit": SubResource("Animation_iar3t")
 }
@@ -520,36 +539,42 @@ offset_bottom = 269.0
 
 [node name="pause" type="PanelContainer" parent="."]
 process_mode = 2
-top_level = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -92.0
-offset_top = -68.0
-offset_right = 92.0
-offset_bottom = 68.0
+anchors_preset = -1
+anchor_left = 0.618
+anchor_top = 0.601
+anchor_right = 0.618
+anchor_bottom = 0.601
+offset_left = -46.936
+offset_top = -16.512
+offset_right = 137.064
+offset_bottom = 90.488
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="pauseContainer" type="VBoxContainer" parent="pause"]
+[node name="MarginContainer" type="MarginContainer" parent="pause"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="pauseContainer" type="VBoxContainer" parent="pause/MarginContainer"]
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="pause/pauseContainer"]
+[node name="Resume" type="Button" parent="pause/MarginContainer/pauseContainer"]
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
 text = "Resume"
 
-[node name="Options" type="Button" parent="pause/pauseContainer"]
+[node name="Options" type="Button" parent="pause/MarginContainer/pauseContainer"]
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
 text = "Options"
 
-[node name="Exit" type="Button" parent="pause/pauseContainer"]
+[node name="Exit" type="Button" parent="pause/MarginContainer/pauseContainer"]
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
@@ -559,54 +584,64 @@ text = "Exit"
 top_level = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.488
+anchor_left = 0.496
 anchor_top = 0.462
-anchor_right = 0.488
+anchor_right = 0.496
 anchor_bottom = 0.462
-offset_left = -42.676
-offset_top = -8.37601
-offset_right = 70.324
-offset_bottom = 57.624
+offset_left = -26.392
+offset_top = -47.376
+offset_right = 119.608
+offset_bottom = 153.624
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 
-[node name="optionContainer" type="VBoxContainer" parent="option"]
+[node name="MarginContainer" type="MarginContainer" parent="option"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="optionContainer" type="VBoxContainer" parent="option/MarginContainer"]
 layout_mode = 2
 
-[node name="Controls" type="Button" parent="option/optionContainer"]
+[node name="Controls" type="Button" parent="option/MarginContainer/optionContainer"]
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
 text = "Controls"
 
-[node name="Fullscreen" type="Button" parent="option/optionContainer"]
+[node name="Fullscreen" type="Button" parent="option/MarginContainer/optionContainer"]
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
 text = "Go Fullscreen"
 
-[node name="Music" type="Label" parent="option/optionContainer"]
+[node name="Music" type="Label" parent="option/MarginContainer/optionContainer"]
 process_mode = 2
 layout_mode = 2
 text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="musicSlider" parent="option/optionContainer" instance=ExtResource("3_i6k1d")]
+[node name="musicSlider" parent="option/MarginContainer/optionContainer" instance=ExtResource("3_i6k1d")]
 process_mode = 2
 layout_mode = 2
 bus_name = "music"
 
-[node name="Sound Effects" type="Label" parent="option/optionContainer"]
+[node name="Sound Effects" type="Label" parent="option/MarginContainer/optionContainer"]
 process_mode = 2
 layout_mode = 2
 text = "Sound Effects"
+horizontal_alignment = 1
 
-[node name="sfxSlider" parent="option/optionContainer" instance=ExtResource("3_i6k1d")]
+[node name="sfxSlider" parent="option/MarginContainer/optionContainer" instance=ExtResource("3_i6k1d")]
 process_mode = 2
 layout_mode = 2
 bus_name = "sfx"
 
-[node name="Back" type="Button" parent="option/optionContainer"]
+[node name="Back" type="Button" parent="option/MarginContainer/optionContainer"]
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
@@ -617,82 +652,64 @@ text = "Back
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.137
-anchor_top = -0.261
-anchor_right = -0.137
-anchor_bottom = -0.261
-offset_left = 45.256
-offset_top = 29.026
-offset_right = 194.256
-offset_bottom = 147.526
+anchor_left = -0.033
+anchor_top = -0.125
+anchor_right = -0.033
+anchor_bottom = -0.125
+offset_left = -77.984
+offset_top = -59.0
+offset_right = 77.016
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="quitContainer" type="VBoxContainer" parent="quit"]
+[node name="MarginContainer" type="MarginContainer" parent="quit"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="quitContainer" type="VBoxContainer" parent="quit/MarginContainer"]
 layout_mode = 2
 
-[node name="To Main" type="Button" parent="quit/quitContainer"]
+[node name="To Main" type="Button" parent="quit/MarginContainer/quitContainer"]
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
 text = "Exit to Main Menu"
 
-[node name="Quit" type="Button" parent="quit/quitContainer"]
+[node name="Quit" type="Button" parent="quit/MarginContainer/quitContainer"]
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
 text = "Quit Game"
 
-[node name="Back2" type="Button" parent="quit/quitContainer"]
+[node name="Back2" type="Button" parent="quit/MarginContainer/quitContainer"]
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
 text = "Back"
 
-[node name="control" type="PanelContainer" parent="."]
+[node name="InputSettings" parent="." instance=ExtResource("4_s2bf1")]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -20.0
-offset_right = 122.0
-offset_bottom = 71.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -53.5
+offset_top = -58.5
+offset_right = 53.5
+offset_bottom = 26.5
 
-[node name="MarginContainer" type="MarginContainer" parent="control"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="controlContainer" type="VBoxContainer" parent="control/MarginContainer"]
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="control/MarginContainer/controlContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ActionList" type="VBoxContainer" parent="control/MarginContainer/controlContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="InputButton" type="Button" parent="control/MarginContainer/controlContainer/ScrollContainer/ActionList"]
-custom_minimum_size = Vector2(0, 18)
-layout_mode = 2
-focus_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="control/MarginContainer/controlContainer/ScrollContainer/ActionList/InputButton"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="control/MarginContainer/controlContainer/ScrollContainer/ActionList/InputButton/MarginContainer"]
-layout_mode = 2
+[node name="PanelContainer" parent="InputSettings" index="0"]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+offset_top = -66.888
+offset_bottom = 63.112
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -705,11 +722,16 @@ bus = &"music"
 [node name="sfxPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"sfx"
 
-[connection signal="pressed" from="pause/pauseContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="pause/pauseContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="pause/pauseContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="option/optionContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
-[connection signal="pressed" from="option/optionContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="quit/quitContainer/To Main" to="." method="_on_to_main_pressed"]
-[connection signal="pressed" from="quit/quitContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="quit/quitContainer/Back2" to="." method="_on_back_2_pressed"]
+[connection signal="pressed" from="pause/MarginContainer/pauseContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="pause/MarginContainer/pauseContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="pause/MarginContainer/pauseContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="option/MarginContainer/optionContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="option/MarginContainer/optionContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="option/MarginContainer/optionContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="quit/MarginContainer/quitContainer/To Main" to="." method="_on_to_main_pressed"]
+[connection signal="pressed" from="quit/MarginContainer/quitContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="quit/MarginContainer/quitContainer/Back2" to="." method="_on_back_2_pressed"]
+[connection signal="pressed" from="InputSettings/PanelContainer/MarginContainer/controlContainer/Back3" to="." method="_on_back_3_pressed"]
+
+[editable path="InputSettings"]
+[editable path="InputSettings/PanelContainer"]

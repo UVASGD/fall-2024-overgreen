@@ -25,31 +25,41 @@ offset_bottom = 106.884
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
 [node name="Start New" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "New Game"
 
 [node name="Continue" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Continue"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Options"
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Credits"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start New" to="." method="_on_start_new_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

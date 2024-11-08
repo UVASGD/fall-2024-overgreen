@@ -4,6 +4,8 @@ var inQuit = false
 var atStart = true
 var firstOption = true
 var firstQuit = true
+var inControl = false
+var firstControl = true
 
 func resume():
 	get_tree().paused = false
@@ -21,43 +23,49 @@ func pause():
 	$AnimationPlayer.play("blur")
 	print("played blur")
 		
-func openOptions():
+func openOptions(fromControl):
 	if firstOption:
 		get_node("option").set_modulate(Color(255, 255, 255, 0))
 		get_node("option").visible = true
 		firstOption = false
-	$AnimationPlayer.play("options")
+		
+	if !fromControl:
+		$AnimationPlayer.play("options")
 	inOptions = true
-	get_node("pause/pauseContainer/Resume").disabled = true
-	get_node("pause/pauseContainer/Options").disabled = true
-	get_node("pause/pauseContainer/Exit").disabled = true
+	get_node("pause/MarginContainer/pauseContainer/Resume").disabled = true
+	get_node("pause/MarginContainer/pauseContainer/Options").disabled = true
+	get_node("pause/MarginContainer/pauseContainer/Exit").disabled = true
 	
-	get_node("quit/quitContainer/Back2").disabled = true
-	get_node("quit/quitContainer/Quit").disabled = true
-	get_node("quit/quitContainer/To Main").disabled = true
+	get_node("quit/MarginContainer/quitContainer/Back2").disabled = true
+	get_node("quit/MarginContainer/quitContainer/Quit").disabled = true
+	get_node("quit/MarginContainer/quitContainer/To Main").disabled = true
 	
-	get_node("option/optionContainer/Controls").disabled = false
-	get_node("option/optionContainer/Fullscreen").disabled = false
-	get_node("option/optionContainer/musicSlider").editable = true
-	get_node("option/optionContainer/sfxSlider").editable = true
-	get_node("option/optionContainer/Back").disabled = false
+	get_node("option/MarginContainer/optionContainer/Controls").disabled = false
+	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = false
+	get_node("option/MarginContainer/optionContainer/musicSlider").editable = true
+	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = true
+	get_node("option/MarginContainer/optionContainer/Back").disabled = false
+	
+	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
 		
 func closeOptions():
 	$AnimationPlayer.play_backwards("options")
 	inOptions = false
-	get_node("pause/pauseContainer/Resume").disabled = false
-	get_node("pause/pauseContainer/Options").disabled = false
-	get_node("pause/pauseContainer/Exit").disabled = false
+	get_node("pause/MarginContainer/pauseContainer/Resume").disabled = false
+	get_node("pause/MarginContainer/pauseContainer/Options").disabled = false
+	get_node("pause/MarginContainer/pauseContainer/Exit").disabled = false
 	
-	get_node("quit/quitContainer/Back2").disabled = true
-	get_node("quit/quitContainer/Quit").disabled = true
-	get_node("quit/quitContainer/To Main").disabled = true
+	get_node("quit/MarginContainer/quitContainer/Back2").disabled = true
+	get_node("quit/MarginContainer/quitContainer/Quit").disabled = true
+	get_node("quit/MarginContainer/quitContainer/To Main").disabled = true
 	
-	get_node("option/optionContainer/Controls").disabled = true
-	get_node("option/optionContainer/Fullscreen").disabled = true
-	get_node("option/optionContainer/musicSlider").editable = false
-	get_node("option/optionContainer/sfxSlider").editable = false
-	get_node("option/optionContainer/Back").disabled = true
+	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
+	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
+	get_node("option/MarginContainer/optionContainer/musicSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/Back").disabled = true
+	
+	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
 	
 func openQuit():
 	if firstQuit:
@@ -65,44 +73,96 @@ func openQuit():
 		get_node("quit").visible = true
 		firstQuit = false
 		print("first quitted")
+	
 	$AnimationPlayer.play("quit")
+		
 	inQuit = true
-	get_node("pause/pauseContainer/Resume").disabled = true
-	get_node("pause/pauseContainer/Options").disabled = true
-	get_node("pause/pauseContainer/Exit").disabled = true
+	get_node("pause/MarginContainer/pauseContainer/Resume").disabled = true
+	get_node("pause/MarginContainer/pauseContainer/Options").disabled = true
+	get_node("pause/MarginContainer/pauseContainer/Exit").disabled = true
 	
-	get_node("quit/quitContainer/Back2").disabled = false
-	get_node("quit/quitContainer/Quit").disabled = false
-	get_node("quit/quitContainer/To Main").disabled = false
+	get_node("quit/MarginContainer/quitContainer/Back2").disabled = false
+	get_node("quit/MarginContainer/quitContainer/Quit").disabled = false
+	get_node("quit/MarginContainer/quitContainer/To Main").disabled = false
 	
-	get_node("option/optionContainer/Controls").disabled = true
-	get_node("option/optionContainer/Fullscreen").disabled = true
-	get_node("option/optionContainer/musicSlider").editable = false
-	get_node("option/optionContainer/sfxSlider").editable = false
-	get_node("option/optionContainer/Back").disabled = true
+	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
+	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
+	get_node("option/MarginContainer/optionContainer/musicSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/Back").disabled = true
+	
+	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
 	
 func closeQuit():
 	$AnimationPlayer.play_backwards("quit")
 	inQuit = false
-	get_node("pause/pauseContainer/Resume").disabled = false
-	get_node("pause/pauseContainer/Options").disabled = false
-	get_node("pause/pauseContainer/Exit").disabled = false
+	get_node("pause/MarginContainer/pauseContainer/Resume").disabled = false
+	get_node("pause/MarginContainer/pauseContainer/Options").disabled = false
+	get_node("pause/MarginContainer/pauseContainer/Exit").disabled = false
 	
-	get_node("quit/quitContainer/Back2").disabled = true
-	get_node("quit/quitContainer/Quit").disabled = true
-	get_node("quit/quitContainer/To Main").disabled = true
+	get_node("quit/MarginContainer/quitContainer/Back2").disabled = true
+	get_node("quit/MarginContainer/quitContainer/Quit").disabled = true
+	get_node("quit/MarginContainer/quitContainer/To Main").disabled = true
 	
-	get_node("option/optionContainer/Controls").disabled = true
-	get_node("option/optionContainer/Fullscreen").disabled = true
-	get_node("option/optionContainer/musicSlider").editable = false
-	get_node("option/optionContainer/sfxSlider").editable = false
-	get_node("option/optionContainer/Back").disabled = true
+	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
+	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
+	get_node("option/MarginContainer/optionContainer/musicSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/Back").disabled = true
+	
+	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
+	
+func openControl():
+	$AnimationPlayer.play("controls")
+	inOptions = false
+	inControl = true
+	if firstControl:
+		get_node("InputSettings/PanelContainer").set_modulate(Color(255, 255, 255, 0))
+		get_node("InputSettings/PanelContainer").visible = true
+		firstControl = false
+		print("first controlled")
+	
+	get_node("pause/MarginContainer/pauseContainer/Resume").disabled = true
+	get_node("pause/MarginContainer/pauseContainer/Options").disabled = true
+	get_node("pause/MarginContainer/pauseContainer/Exit").disabled = true
+	
+	get_node("quit/MarginContainer/quitContainer/Back2").disabled = true
+	get_node("quit/MarginContainer/quitContainer/Quit").disabled = true
+	get_node("quit/MarginContainer/quitContainer/To Main").disabled = true
+	
+	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
+	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
+	get_node("option/MarginContainer/optionContainer/musicSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = false
+	get_node("option/MarginContainer/optionContainer/Back").disabled = true
+	
+	get_node("InputSettings").set_process_mode(PROCESS_MODE_ALWAYS)
+		
+func closeControl():
+	$AnimationPlayer.play_backwards("controls")
+	inControl = false
+	openOptions(true)
+	get_node("pause/MarginContainer/pauseContainer/Resume").disabled = true
+	get_node("pause/MarginContainer/pauseContainer/Options").disabled = true
+	get_node("pause/MarginContainer/pauseContainer/Exit").disabled = true
+	
+	get_node("quit/MarginContainer/quitContainer/Back2").disabled = true
+	get_node("quit/MarginContainer/quitContainer/Quit").disabled = true
+	get_node("quit/MarginContainer/quitContainer/To Main").disabled = true
+	
+	get_node("option/MarginContainer/optionContainer/Controls").disabled = false
+	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = false
+	get_node("option/MarginContainer/optionContainer/musicSlider").editable = true
+	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = true
+	get_node("option/MarginContainer/optionContainer/Back").disabled = false
+	
+	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
 	
 func _process(delta: float) -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-		get_node("option/optionContainer/Fullscreen").set_text("Go Fullscreen")
+		get_node("option/MarginContainer/optionContainer/Fullscreen").set_text("Go Fullscreen")
 	else:
-		get_node("option/optionContainer/Fullscreen").set_text("Go Windowed")
+		get_node("option/MarginContainer/optionContainer/Fullscreen").set_text("Go Windowed")
 	
 	if Input.is_action_just_pressed("esc"):
 		if !get_tree().paused:
@@ -112,6 +172,8 @@ func _process(delta: float) -> void:
 				closeOptions()
 			elif inQuit:
 				closeQuit()
+			elif inControl:
+				closeControl()
 			else:
 				resume()
 				inOptions = false
@@ -120,13 +182,13 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-		get_node("option/optionContainer/Fullscreen").set_text("Go Windowed")
+		get_node("option/MarginContainer/optionContainer/Fullscreen").set_text("Go Windowed")
 
 func _on_resume_pressed() -> void:
 	resume()
 	
 func _on_options_pressed() -> void:
-	openOptions()
+	openOptions(false)
 	
 func _on_back_pressed() -> void:
 	closeOptions()
@@ -136,15 +198,18 @@ func _on_back_2_pressed() -> void:
 	
 func _on_exit_pressed() -> void:
 	openQuit()
+	
+func _on_controls_pressed() -> void:
+	openControl()
 
 func _on_fullscreen_pressed() -> void:
 	#display/window/size/mode = 1
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		get_node("option/optionContainer/Fullscreen").set_text("Go Windowed")
+		get_node("option/MarginContainer/optionContainer/Fullscreen").set_text("Go Windowed")
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		get_node("option/optionContainer/Fullscreen").set_text("Go Fullscreen")
+		get_node("option/MarginContainer/optionContainer/Fullscreen").set_text("Go Fullscreen")
 
 func _on_to_main_pressed() -> void:
 	get_tree().paused = false
@@ -152,3 +217,8 @@ func _on_to_main_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_back_3_pressed() -> void:
+	print("backed")
+	closeControl()
