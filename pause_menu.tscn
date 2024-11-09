@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://s4sxgwrmwdsg"]
+[gd_scene load_steps=13 format=3 uid="uid://s4sxgwrmwdsg"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_5um6b"]
 [ext_resource type="Shader" path="res://pause-menu.gdshader" id="2_fgmx2"]
+[ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://DeliusSwashCaps-Regular.ttf" id="3_gmnj7"]
 [ext_resource type="PackedScene" uid="uid://db2cbpj1i0w6n" path="res://volume_slider.tscn" id="3_i6k1d"]
 [ext_resource type="PackedScene" uid="uid://bvi37umd6qho6" path="res://input_settings.tscn" id="4_s2bf1"]
 
@@ -524,20 +525,26 @@ layout_mode = 2
 
 [node name="Resume" type="Button" parent="pause/MarginContainer/pauseContainer"]
 process_mode = 2
+custom_minimum_size = Vector2(0, 33)
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gmnj7")
 text = "Resume"
 
 [node name="Options" type="Button" parent="pause/MarginContainer/pauseContainer"]
 process_mode = 2
+custom_minimum_size = Vector2(0, 33)
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gmnj7")
 text = "Options"
 
 [node name="Exit" type="Button" parent="pause/MarginContainer/pauseContainer"]
 process_mode = 2
+custom_minimum_size = Vector2(0, 33)
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gmnj7")
 text = "Exit"
 
 [node name="option" type="PanelContainer" parent="."]
@@ -569,6 +576,7 @@ layout_mode = 2
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gmnj7")
 theme_override_font_sizes/font_size = 8
 text = "Controls"
 
@@ -576,6 +584,7 @@ text = "Controls"
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gmnj7")
 theme_override_font_sizes/font_size = 8
 text = "Go Fullscreen"
 
@@ -585,6 +594,7 @@ layout_mode = 2
 [node name="Music" type="Label" parent="option/MarginContainer/optionContainer/HBoxContainer"]
 process_mode = 2
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gmnj7")
 theme_override_font_sizes/font_size = 8
 text = "        Music        "
 horizontal_alignment = 1
@@ -602,6 +612,7 @@ layout_mode = 2
 [node name="Sound Effects" type="Label" parent="option/MarginContainer/optionContainer/HBoxContainer2"]
 process_mode = 2
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gmnj7")
 theme_override_font_sizes/font_size = 8
 text = " Sound Effects "
 horizontal_alignment = 1
@@ -616,6 +627,7 @@ bus_name = "sfx"
 process_mode = 2
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gmnj7")
 theme_override_font_sizes/font_size = 8
 text = "Back
 "
@@ -648,23 +660,29 @@ layout_mode = 2
 
 [node name="To Main" type="Button" parent="quit/MarginContainer/quitContainer"]
 process_mode = 2
+custom_minimum_size = Vector2(0, 33)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gmnj7")
 text = "To Main Menu"
 
 [node name="Quit" type="Button" parent="quit/MarginContainer/quitContainer"]
 process_mode = 2
+custom_minimum_size = Vector2(0, 33)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gmnj7")
 text = "Quit Game"
 
 [node name="Back2" type="Button" parent="quit/MarginContainer/quitContainer"]
 process_mode = 2
+custom_minimum_size = Vector2(0, 33)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
+theme_override_fonts/font = ExtResource("3_gmnj7")
 text = "Back"
 
 [node name="InputSettings" parent="." instance=ExtResource("4_s2bf1")]
@@ -690,6 +708,15 @@ offset_left = -77.5
 offset_top = -73.5
 offset_right = 77.5
 offset_bottom = 73.5
+
+[node name="InputButton" parent="InputSettings/PanelContainer/MarginContainer/controlContainer/ScrollContainer/ActionList" index="0"]
+theme_override_fonts/font = ExtResource("3_gmnj7")
+
+[node name="ResetButton" parent="InputSettings/PanelContainer/MarginContainer/controlContainer" index="1"]
+theme_override_fonts/font = ExtResource("3_gmnj7")
+
+[node name="Back3" parent="InputSettings/PanelContainer/MarginContainer/controlContainer" index="2"]
+theme_override_fonts/font = ExtResource("3_gmnj7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

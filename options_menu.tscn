@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b423o7w3i0hda"]
+[gd_scene load_steps=4 format=3 uid="uid://b423o7w3i0hda"]
 
 [ext_resource type="Script" path="res://options_menu.gd" id="1_6lpo1"]
+[ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://DeliusSwashCaps-Regular.ttf" id="2_j88lq"]
 [ext_resource type="PackedScene" uid="uid://db2cbpj1i0w6n" path="res://volume_slider.tscn" id="2_vps8h"]
 
 [node name="OptionsMenu" type="Control"]
@@ -15,24 +16,26 @@ script = ExtResource("1_6lpo1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.5
-offset_top = -62.5
-offset_right = 52.5
-offset_bottom = 62.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -102.0
+offset_right = 32.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
 [node name="Music" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j88lq")
+theme_override_font_sizes/font_size = 9
 text = "Music"
+horizontal_alignment = 1
 
 [node name="musicSlider" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_vps8h")]
 layout_mode = 2
@@ -40,7 +43,10 @@ bus_name = "music"
 
 [node name="Sound Effects" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_j88lq")
+theme_override_font_sizes/font_size = 9
 text = "Sound Effects"
+horizontal_alignment = 1
 
 [node name="sfxSlider" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_vps8h")]
 layout_mode = 2
@@ -49,6 +55,8 @@ bus_name = "sfx"
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("2_j88lq")
+theme_override_font_sizes/font_size = 12
 text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

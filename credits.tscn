@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cld370usajede"]
+[gd_scene load_steps=3 format=3 uid="uid://cld370usajede"]
 
 [ext_resource type="Script" path="res://credits.gd" id="1_pm23s"]
+[ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://DeliusSwashCaps-Regular.ttf" id="2_uxuyj"]
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -31,6 +32,7 @@ layout_mode = 2
 [node name="Back" type="Button" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 focus_mode = 0
+theme_override_fonts/font = ExtResource("2_uxuyj")
 text = "Back"
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]

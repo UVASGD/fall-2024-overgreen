@@ -13,7 +13,6 @@ func resume():
 	
 func pause():
 	get_tree().paused = true;
-	#print("paused")
 	if atStart:
 		get_node("pause").set_modulate(Color(255, 255, 255, 0))
 		get_node("pause").visible = true
@@ -21,7 +20,6 @@ func pause():
 		get_node("ColorRect2").visible = true
 		atStart = false
 	$AnimationPlayer.play("blur")
-	print("played blur")
 		
 func openOptions(fromControl):
 	if firstOption:
@@ -31,8 +29,6 @@ func openOptions(fromControl):
 		
 	if !fromControl:
 		$AnimationPlayer.play("options")
-	if fromControl:
-		print("from control")
 	inOptions = true
 	get_node("pause/MarginContainer/pauseContainer/Resume").disabled = true
 	get_node("pause/MarginContainer/pauseContainer/Options").disabled = true
@@ -74,7 +70,6 @@ func openQuit():
 		get_node("quit").set_modulate(Color(255, 255, 255, 0))
 		get_node("quit").visible = true
 		firstQuit = false
-		print("first quitted")
 	
 	$AnimationPlayer.play("quit")
 		
@@ -122,7 +117,6 @@ func openControl():
 		get_node("InputSettings/PanelContainer").set_modulate(Color(255, 255, 255, 0))
 		get_node("InputSettings/PanelContainer").visible = true
 		firstControl = false
-		print("first controlled")
 		
 	$AnimationPlayer.play("controls")
 	
@@ -225,5 +219,4 @@ func _on_quit_pressed() -> void:
 
 
 func _on_back_3_pressed() -> void:
-	print("backed")
 	closeControl()
