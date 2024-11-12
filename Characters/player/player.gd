@@ -12,6 +12,8 @@ extends CharacterBody2D
 
 @onready var grapple_scene = preload("res://Characters/hook.tscn")
 
+
+
 var direction: Vector2 = Vector2.ZERO
 var theta: float
 var isGrappling
@@ -54,7 +56,7 @@ func _physics_process(delta):
 		angVel += swingSpeed * angAccel * delta
 		theta += angVel * delta
 		
-		position = Vector2(radius * cos(theta + (PI/2)), radius * sin(theta + (PI/2)))
+		position = Vector2(radius * cos(theta + (PI/2)) + 100, radius * sin(theta + (PI/2)))
 		
 	
 	#print(is_on_floor())
@@ -78,7 +80,7 @@ func ang_accel() -> float:
 	
 func _draw():
 	if isGrappling:
-		draw_line(Vector2(0, 0), -position, Color.BLACK, 5.0)
+		draw_line(Vector2(0, 0), -position + Vector2(100, 0), Color.BLACK, 5.0)
 
 
 
