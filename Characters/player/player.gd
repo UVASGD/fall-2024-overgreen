@@ -25,6 +25,7 @@ var yvel
 var xvel
 var swingSpeed = 5
 
+
 func _ready():
 	theta = deg_to_rad(90)
 	isGrappling = false
@@ -61,7 +62,7 @@ func _physics_process(delta):
 	#print(wasGrappling)
 	#print("xvel: " + str(xvel))
 	print("yvel: " + str(yvel))
-	#print(angVel)
+	print(position)
 	
 	if Input.is_action_just_pressed("grappling"):
 		wasGrappling = isGrappling

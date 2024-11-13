@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://2t4vf8jqxla0"]
+[gd_scene load_steps=24 format=3 uid="uid://2t4vf8jqxla0"]
 
 [ext_resource type="Texture2D" uid="uid://bd5l0mfcr5onr" path="res://Art/AnimationSheet_Character.png" id="1_7lgf5"]
 [ext_resource type="Script" path="res://Characters/player/player.gd" id="1_8plwf"]
+[ext_resource type="Script" path="res://Characters/player/ray_cast_2d.gd" id="3_k2eqi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhtgm"]
 atlas = ExtResource("1_7lgf5")
@@ -168,3 +169,6 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_4lifr")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+script = ExtResource("3_k2eqi")
