@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddvepnfuw6g8n"]
+[gd_scene load_steps=3 format=3 uid="uid://ddvepnfuw6g8n"]
 
 [ext_resource type="Script" path="res://hook.gd" id="1_i6l6i"]
+[ext_resource type="Texture2D" uid="uid://b5tqdb2y4wl3r" path="res://Screenshot 2024-11-12 at 4.24.30 PM.png" id="2_wjpv4"]
 
 [node name="hook" type="Node2D"]
 script = ExtResource("1_i6l6i")
 
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(0, 0, 20, 0)
+width = 5.0
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_wjpv4")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://2t4vf8jqxla0"]
+[gd_scene load_steps=24 format=3 uid="uid://2t4vf8jqxla0"]
 
 [ext_resource type="Texture2D" uid="uid://bd5l0mfcr5onr" path="res://Art/AnimationSheet_Character.png" id="1_7lgf5"]
 [ext_resource type="Script" path="res://Characters/player/player.gd" id="1_8plwf"]
+[ext_resource type="Texture2D" uid="uid://deqijcj3u000f" path="res://rope.png" id="3_4iq20"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhtgm"]
 atlas = ExtResource("1_7lgf5")
@@ -168,3 +169,12 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_4lifr")
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 100, 0)
+width = 5.0
+texture = ExtResource("3_4iq20")
+texture_mode = 1
+metadata/_edit_group_ = true
