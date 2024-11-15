@@ -22,7 +22,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var closest = Vector2(0,0)
+	var closest = Vector2(-1000,0)
 	for hoo in hookStarts:
 		if get_node("Player").position.distance_to(hoo) < get_node("Player").position.distance_to(closest):
 			closest = hoo

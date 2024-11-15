@@ -68,8 +68,8 @@ func _physics_process(delta):
 	#print(wasGrappling)
 	#print("xvel: " + str(xvel))
 #<<<<<<< HEAD
-	print("yvel: " + str(yvel))
-	print(position)
+	#print("yvel: " + str(yvel))
+	print(nearestHook)
 #=======
 	##print("yvel: " + str(yvel))
 	##print(angVel)
@@ -79,8 +79,10 @@ func _physics_process(delta):
 		wasGrappling = isGrappling
 		if position.distance_to(nearestHook) < radius || isGrappling:
 			isGrappling = !isGrappling
+			radius = position.distance_to(nearestHook)
 			if !isGrappling:
 				get_node("Line2D").visible = false
+				radius = 100.0
 		hookPos = nearestHook
 		
 	animation_handler.tick(direction)
