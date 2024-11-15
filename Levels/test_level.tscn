@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://djifpnwsxfblw" path="res://Art/Jungle Asset Pack/parallax background/plx-5.png" id="5_rv1jq"]
 [ext_resource type="Texture2D" uid="uid://cfdj45sux2k2l" path="res://Art/pixil-frame-0.png" id="6_4uc3m"]
 [ext_resource type="Texture2D" uid="uid://deb1if82bnq3j" path="res://Art/pixil-frame-0_4.png" id="7_c4u3u"]
-[ext_resource type="PackedScene" uid="uid://das6fstnmtjvp" path="res://Levels/forest-level.tscn" id="10_e0eee"]
+[ext_resource type="PackedScene" path="res://Levels/forest-level.tscn" id="10_e0eee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1dk8c"]
 texture = ExtResource("1_nttq1")
