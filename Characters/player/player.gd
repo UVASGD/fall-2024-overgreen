@@ -20,7 +20,7 @@ var direction: Vector2 = Vector2.ZERO
 var theta: float
 var isGrappling
 var wasGrappling
-var radius: float = 103.0
+var radius: float = 100.0
 var gravity: float = 20.0
 var angAccel = 0
 var angVel = 0
