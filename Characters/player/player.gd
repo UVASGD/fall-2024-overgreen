@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var jump_velocity: float = -150.0
 @export var double_jump_velocity: float = -150.0
 
+@export var nearestHook: Vector2
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var dash_handler: PlayerDash = PlayerDash.new(self)
@@ -12,11 +14,13 @@ extends CharacterBody2D
 
 @onready var grapple_scene = preload("res://Characters/hook.tscn")
 
+
+var hookPos: Vector2
 var direction: Vector2 = Vector2.ZERO
 var theta: float
 var isGrappling
 var wasGrappling
-var radius: float = 100.0
+var radius: float = 103.0
 var gravity: float = 20.0
 var angAccel = 0
 var angVel = 0
@@ -30,6 +34,8 @@ func _ready():
 	theta = deg_to_rad(90)
 	isGrappling = false
 	wasGrappling = false
+	
+
 
 func _physics_process(delta):
 	
@@ -55,18 +61,27 @@ func _physics_process(delta):
 		angVel += swingSpeed * angAccel * delta
 		theta += angVel * delta
 		
-		position = Vector2(radius * cos(theta + (PI/2)), radius * sin(theta + (PI/2)))
+		position = Vector2(radius * cos(theta + (PI/2)), radius * sin(theta + (PI/2))) + hookPos 
 		
 	
 	#print(is_on_floor())
 	#print(wasGrappling)
 	#print("xvel: " + str(xvel))
+#<<<<<<< HEAD
 	print("yvel: " + str(yvel))
 	print(position)
+#=======
+	##print("yvel: " + str(yvel))
+	##print(angVel)
+#>>>>>>> c148b2f8de922a8b4446e5247cac565b32235bb6
 	
 	if Input.is_action_just_pressed("grappling"):
 		wasGrappling = isGrappling
-		isGrappling = !isGrappling
+		if position.distance_to(nearestHook) < radius || isGrappling:
+			isGrappling = !isGrappling
+			if !isGrappling:
+				get_node("Line2D").visible = false
+		hookPos = nearestHook
 		
 	animation_handler.tick(direction)
 	queue_redraw()
@@ -79,7 +94,9 @@ func ang_accel() -> float:
 	
 func _draw():
 	if isGrappling:
-		draw_line(Vector2(0, 0), -position, Color.BLACK, 5.0)
+		#draw_line(Vector2(0, 0), -position + hookPos, Color.BLACK, 5.0)
+		get_node("Line2D").points[1] = Vector2(-position + hookPos)
+		get_node("Line2D").visible = true
 
 
 

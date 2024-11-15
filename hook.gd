@@ -1,10 +1,12 @@
 extends Node2D
 
-func _ready():
-	position = Vector2(0, 0)
+@export var startPos: Vector2
 
-func _draw():
-	draw_line(Vector2(10, 0), position, Color.BLACK, 10.0)
+func _ready():
+	position = startPos
 	
 func _process(delta: float) -> void:
 	queue_redraw()
+
+#func _draw():
+	#draw_line(Vector2(500, 500), position, Color.RED, 10.0)
