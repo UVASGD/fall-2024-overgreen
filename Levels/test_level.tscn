@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cu8xld6x5py1b"]
+[gd_scene load_steps=22 format=4 uid="uid://cu8xld6x5py1b"]
 
 [ext_resource type="Texture2D" uid="uid://j0u8fpyjtkws" path="res://Art/Jungle Asset Pack/parallax background/plx-1.png" id="1_5erga"]
 [ext_resource type="PackedScene" uid="uid://c77vu71a3e5je" path="res://Characters/Mobs/bird_mob.tscn" id="1_de7tu"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://das6fstnmtjvp" path="res://Levels/forest-level.tscn" id="10_e0eee"]
 [ext_resource type="Texture2D" uid="uid://cpwj52ufbae28" path="res://icon.svg" id="11_3qq23"]
 [ext_resource type="PackedScene" uid="uid://cm6d2vmg8kqli" path="res://Characters/Mobs/snake_mob.tscn" id="13_6qlcv"]
+[ext_resource type="PackedScene" uid="uid://kn3ryv1td3pe" path="res://Levels/onscreen_timer.tscn" id="13_lo4d2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1dk8c"]
 texture = ExtResource("1_nttq1")
@@ -667,6 +668,9 @@ offset_bottom = 13.0
 max_value = 10.0
 step = 0.5
 show_percentage = false
+
+[node name="Onscreen Timer" parent="CanvasLayer" instance=ExtResource("13_lo4d2")]
+position = Vector2(217, -1)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
