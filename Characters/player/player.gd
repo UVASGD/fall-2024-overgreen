@@ -24,32 +24,10 @@ func _ready():
 	# add to scene tree
 	add_child(dash_handler)
 	add_child(basic_movement_handler)
-
-
-var direction: Vector2 = Vector2.ZERO
-
-var currentHealth: float = 10
-var healthDeduction: float = 0
-var fallDamage: float = 0
-var vel: float = 0
-var recorded_velocity_y: float = 0
-@onready var my_label = $Label
-@onready var health_bar: ProgressBar
-@onready var rng = RandomNumberGenerator.new()
-
-enum GROUND_STATE {
-	GROUNDED,
-	MIDAIR,
-	TOUCHDOWN
-}
-var player_state = GROUND_STATE.GROUNDED
-
-func _ready():
 	health_bar = get_parent().get_node("CanvasLayer").get_node("HealthBar")
 	health_bar.max_value = 10  # Set max value
 	health_bar.value = health_bar.max_value
 	
-
 	# Create a new Theme
 	var theme = Theme.new()
 	health_bar.theme = theme  # Assign the theme to the ProgressBar
@@ -73,6 +51,55 @@ func _ready():
 	bg_style.corner_radius_bottom_left = 10
 	bg_style.corner_radius_bottom_right = 10
 	theme.set_stylebox("panel", "ProgressBar", bg_style)
+
+
+var direction: Vector2 = Vector2.ZERO
+
+var currentHealth: float = 10
+var healthDeduction: float = 0
+var fallDamage: float = 0
+var vel: float = 0
+var recorded_velocity_y: float = 0
+@onready var my_label = $Label
+@onready var health_bar: ProgressBar
+@onready var rng = RandomNumberGenerator.new()
+
+enum GROUND_STATE {
+	GROUNDED,
+	MIDAIR,
+	TOUCHDOWN
+}
+var player_state = GROUND_STATE.GROUNDED
+
+#func _ready():
+	#health_bar = get_parent().get_node("CanvasLayer").get_node("HealthBar")
+	#health_bar.max_value = 10  # Set max value
+	#health_bar.value = health_bar.max_value
+	#
+#
+	## Create a new Theme
+	#var theme = Theme.new()
+	#health_bar.theme = theme  # Assign the theme to the ProgressBar
+#
+	## Create a StyleBoxFlat for the fill
+	#var fill_style = StyleBoxFlat.new()
+	#fill_style.bg_color = Color.GREEN
+	#fill_style.corner_radius_top_left = 10  # Set the corner radius
+	#fill_style.corner_radius_top_right = 10
+	#fill_style.corner_radius_bottom_left = 10
+	#fill_style.corner_radius_bottom_right = 10
+	#
+	## Set the fill style to the ProgressBar
+	#theme.set_stylebox("fill", "ProgressBar", fill_style)
+#
+	## Optionally, set a background style for the ProgressBar
+	#var bg_style = StyleBoxFlat.new()
+	#bg_style.bg_color = Color(0.2, 0.2, 0.2)  # Darker background
+	#bg_style.corner_radius_top_left = 10
+	#bg_style.corner_radius_top_right = 10
+	#bg_style.corner_radius_bottom_left = 10
+	#bg_style.corner_radius_bottom_right = 10
+	#theme.set_stylebox("panel", "ProgressBar", bg_style)
 
 	
 func _physics_process(delta):
