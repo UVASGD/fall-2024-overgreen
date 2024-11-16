@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm6d2vmg8kqli"]
+
+[ext_resource type="Script" path="res://snake_mob.gd" id="1_nfeha"]
+[ext_resource type="Texture2D" uid="uid://cpwj52ufbae28" path="res://icon.svg" id="2_i2cn3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u4y0o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdhcy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i2cn3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tv8v3"]
+radius = 24.0
+
+[node name="SnakeMob" type="CharacterBody2D"]
+script = ExtResource("1_nfeha")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_u4y0o")
+scale = Vector2(0.314453, 0.263672)
+sprite_frames = SubResource("SpriteFrames_bdhcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tv8v3")
