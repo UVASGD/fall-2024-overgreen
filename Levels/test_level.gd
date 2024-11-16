@@ -4,9 +4,9 @@ extends Node2D
 @onready var hook_scene = preload("res://Characters/hook.tscn")
 
 var hookStarts = [
-	Vector2(800,20),
-	Vector2(150, 20),
-	Vector2(400, 20)
+	Vector2(800,0),
+	Vector2(150, 0),
+	Vector2(400, 0)
 ]
 	
 func _create_hooks():

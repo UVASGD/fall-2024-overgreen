@@ -27,13 +27,16 @@ var angVel = 0
 var t = 0
 var yvel
 var xvel
-var swingSpeed = 5
+var swingSpeed = 10
+var swingForce = 0
+var radX
 
 
 func _ready():
 	theta = deg_to_rad(90)
 	isGrappling = false
 	wasGrappling = false
+	radX = 0
 	
 
 
@@ -57,29 +60,36 @@ func _physics_process(delta):
 				
 	else:
 		
-		angAccel = ang_accel()
+		angAccel = ang_accel() 
 		angVel += swingSpeed * angAccel * delta
 		theta += angVel * delta
 		
 		position = Vector2(radius * cos(theta + (PI/2)), radius * sin(theta + (PI/2))) + hookPos 
 		
+		#if Input.is_action_pressed("left"):
+			#if swingForce <= 1.00:
+				#swingForce += delta
+				#angVel += swingForce * delta
+		#if Input.is_action_pressed("right"):
+			#if swingForce >= -1.00:
+				#swingForce -= delta
+				#angVel -= swingForce * delta
+		
+		
+	#print(radius)
+	print("theta:" + str(theta))
+	print("angVel:" + str(angVel))
+	print("angAccel:" + str(angAccel))
 	
-	#print(is_on_floor())
-	#print(wasGrappling)
-	#print("xvel: " + str(xvel))
-#<<<<<<< HEAD
-	#print("yvel: " + str(yvel))
-	print(nearestHook)
-#=======
-	##print("yvel: " + str(yvel))
-	##print(angVel)
-#>>>>>>> c148b2f8de922a8b4446e5247cac565b32235bb6
 	
 	if Input.is_action_just_pressed("grappling"):
 		wasGrappling = isGrappling
 		if position.distance_to(nearestHook) < radius || isGrappling:
 			isGrappling = !isGrappling
 			radius = position.distance_to(nearestHook)
+			radX = position.x - nearestHook.x
+			theta = -asin(radX/radius) 
+			
 			if !isGrappling:
 				get_node("Line2D").visible = false
 				radius = 100.0
