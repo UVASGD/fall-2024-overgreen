@@ -2,7 +2,8 @@ extends Node
 
 class_name PlayerBasicMovement
 
-signal lock_movement(lock)
+signal lock_movement(lock: bool)
+signal set_anim(state: String, interupt: bool)
 
 var player: Player
 var lock: bool
@@ -19,8 +20,6 @@ func _ready():
 	var dash_node = player.get_node("PlayerDash")
 	dash_node.connect("lock_movement", Callable(self, "_on_lock_signal"))
 func tick(delta):
-	if player == null:
-		return
 	if lock:
 		player.move_and_slide()
 		return
@@ -29,6 +28,10 @@ func tick(delta):
 		player.velocity.y += gravity * delta
 		was_in_air = true
 	elif was_in_air:
+		# player.land()
+		#TODO: make signal to sprite_anim
+
+		
 		has_double_jumped = false
 		# todo: change to signal method
 		player.land()
@@ -48,7 +51,7 @@ func tick(delta):
 	# as good practice, you should replace UI actions with custom gameplay actions
 	player.direction = Input.get_vector("left", "right", "up", "down")
 	player.velocity.x = move_toward(player.velocity.x, 0, player.speed)
-	player.velocity.x = player.direction.x * player.speed
+	player.velocity.x = sign(player.direction.x) * player.speed # project vector to x axis with sign()
 	player.move_and_slide()
 	
 func get_velocity():

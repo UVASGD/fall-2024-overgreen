@@ -16,6 +16,7 @@ class_name Player
 var animation_handler: SpriteAnimation
 var dash_handler: PlayerDash
 var basic_movement_handler: PlayerBasicMovement
+var input_buffer_manager: InputBufferManager
 
 func _ready():
 	animation_handler = SpriteAnimation.new($AnimatedSprite2D)
@@ -24,9 +25,13 @@ func _ready():
 	dash_handler.set_constants(dash_speed, dash_time, dash_num_charges)
 	basic_movement_handler = PlayerBasicMovement.new()
 	basic_movement_handler.name = "PlayerBasicMovement"
+	input_buffer_manager = InputBufferManager.new()
+	input_buffer_manager.name = "InputBufferManager"
 	# add to scene tree
 	add_child(dash_handler)
 	add_child(basic_movement_handler)
+	add_child(input_buffer_manager)
+
 	health_bar = get_parent().get_node("CanvasLayer").get_node("HealthBar")
 	health_bar.max_value = 10  # Set max value
 	health_bar.value = health_bar.max_value
@@ -165,6 +170,23 @@ func _physics_process(delta):
 	
 func land():
 	animation_handler.set_state("jump_end")
+	animation_handler.tick(direction)
+	
+	var current_velocity_y = basic_movement_handler.get_velocity().y 
+	
+	match player_state:
+		GROUND_STATE.GROUNDED:
+			if not is_on_floor():
+				player_state = GROUND_STATE.MIDAIR
+		GROUND_STATE.MIDAIR:
+			if (current_velocity_y > recorded_velocity_y):
+				recorded_velocity_y = current_velocity_y  # Record the maximum velocity while in the air
+			if is_on_floor():
+				player_state = GROUND_STATE.TOUCHDOWN
+		GROUND_STATE.TOUCHDOWN:
+			apply_fall_damage(recorded_velocity_y)  # Apply damage based on recorded velocity
+			recorded_velocity_y = 0 # reset value
+			player_state = GROUND_STATE.GROUNDED
 	
 func ang_accel() -> float:
 	return -1 * (gravity/radius) * sin(theta)
@@ -190,27 +212,10 @@ func reset(delta):
 
 	basic_movement_handler.tick(delta)
 	dash_handler.tick()
+	input_buffer_manager.tick(delta)
 
 func _process(_delta):
 	animation_handler.tick(direction)
-
-	animation_handler.tick(direction)
-	
-	var current_velocity_y = basic_movement_handler.get_velocity().y 
-	
-	match player_state:
-		GROUND_STATE.GROUNDED:
-			if not is_on_floor():
-				player_state = GROUND_STATE.MIDAIR
-		GROUND_STATE.MIDAIR:
-			if (current_velocity_y > recorded_velocity_y):
-				recorded_velocity_y = current_velocity_y  # Record the maximum velocity while in the air
-			if is_on_floor():
-				player_state = GROUND_STATE.TOUCHDOWN
-		GROUND_STATE.TOUCHDOWN:
-			apply_fall_damage(recorded_velocity_y)  # Apply damage based on recorded velocity
-			recorded_velocity_y = 0 # reset value
-			player_state = GROUND_STATE.GROUNDED
 
 #func land():
 	#animation_handler.set_state("jump_end")
