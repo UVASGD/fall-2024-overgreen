@@ -435,7 +435,7 @@ scale = Vector2(1.88281, 1.73148)
 texture = ExtResource("5_rv1jq")
 
 [node name="BirdMob" parent="." instance=ExtResource("1_de7tu")]
-position = Vector2(-224, -65)
+position = Vector2(-200, 28)
 
 [node name="Pixil-frame-0" type="Sprite2D" parent="."]
 position = Vector2(917, 138)
@@ -467,4 +467,4 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="SnakeMob" parent="." instance=ExtResource("13_6qlcv")]
-position = Vector2(-257, 145)
+position = Vector2(-280, 143)
