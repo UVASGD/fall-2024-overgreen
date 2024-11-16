@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://dc40atxfoc5ba"]
 
 [ext_resource type="Texture2D" uid="uid://cykgiowecvox3" path="res://Art/underground 2.png" id="1_il5r3"]
-[ext_resource type="Texture2D" uid="uid://denxtg2jajhr2" path="res://Art/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="1_wxekc"]
+[ext_resource type="Texture2D" uid="uid://denxtg2jajhr2" path="res://Art/Jungle Asset Pack/jungle tileset/files/jungle tileset.png" id="1_wxekc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kw4ji"]
 texture = ExtResource("1_wxekc")
