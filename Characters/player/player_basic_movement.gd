@@ -35,6 +35,8 @@ func tick(delta):
 		was_in_air = false
 	# handle jump
 	if Input.is_action_just_pressed("jump"):
+		if player.is_on_floor() or player.is_on_wall():
+			# Normal jump from floor
 		if player.is_on_floor():
 			# normal jump from floor
 			jump()
