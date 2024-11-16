@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://kn3ryv1td3pe"]
+
+[ext_resource type="Script" path="res://onscreen_timer.gd" id="1_mbbku"]
+
+[node name="Onscreen Timer" type="Node2D"]
+script = ExtResource("1_mbbku")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 86.0
+offset_bottom = 23.0
+text = "00:00"
+
+[node name="Timer" type="Timer" parent="."]
