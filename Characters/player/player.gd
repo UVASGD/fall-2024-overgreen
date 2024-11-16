@@ -9,6 +9,9 @@ class_name Player
 @export var dash_time: float = 0.25;
 @export var dash_num_charges: float = 2.0;
 
+@export var nearestHook: Vector2
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 # Remove @onready and initialize the variables in _ready()
 var animation_handler: SpriteAnimation
 var dash_handler: PlayerDash
@@ -53,7 +56,33 @@ func _ready():
 	theme.set_stylebox("panel", "ProgressBar", bg_style)
 
 
+@onready var grapple_scene = preload("res://Characters/hook.tscn")
+
+
+var hookPos: Vector2
 var direction: Vector2 = Vector2.ZERO
+var theta: float
+var isGrappling
+var wasGrappling
+var radius: float = 100.0
+var gravity: float = 20.0
+var angAccel = 0
+var angVel = 0
+var t = 0
+var yvel
+var xvel
+var swingSpeed = 20
+var swingForce = 0
+var radX
+
+
+func _ready():
+	theta = deg_to_rad(90)
+	isGrappling = false
+	wasGrappling = false
+	radX = 0
+	
+
 
 var currentHealth: float = 10
 var healthDeduction: float = 0
@@ -73,6 +102,87 @@ var player_state = GROUND_STATE.GROUNDED
 
 	
 func _physics_process(delta):
+	if isGrappling == false:
+		
+		swingForce = 0
+		basic_movement_handler.tick(delta)
+		
+		if is_on_floor() or is_on_wall():
+			yvel = 0
+			xvel = 0
+			wasGrappling = false
+			angVel = 0
+		
+		else:
+			if wasGrappling:
+				yvel = angVel * radius * cos(theta + (PI/2)) * delta
+				xvel = -1 * angVel * radius * sin(theta + (PI/2)) * delta
+				position.y += yvel
+				position.x += xvel
+				
+	else:
+		
+		angAccel = ang_accel() 
+		angVel += swingSpeed * angAccel * delta
+		theta += angVel * delta
+		
+		position = Vector2(radius * cos(theta + (PI/2)), radius * sin(theta + (PI/2))) + hookPos 
+		
+		
+		if Input.is_action_pressed("left"):
+			if swingForce >= -1.00:
+				swingForce -= delta
+				angVel -= swingForce * delta
+		if Input.is_action_pressed("right"):
+			if swingForce <= 1.00:
+				swingForce += 1 * delta
+				angVel += swingForce * delta
+		
+				
+		move_and_slide()
+		if is_on_wall() or is_on_ceiling():
+			reset(delta)
+			
+	#print(radius)
+	#print("theta:" + str(theta))
+	print("angVel:" + str(angVel))
+	#print("angAccel:" + str(angAccel))
+	#print(isGrappling)
+	#print(wasGrappling)
+	#print(swingForce)
+	#print(velocity.x)
+	
+	if Input.is_action_just_pressed("grappling"):
+		reset(delta)
+		
+	animation_handler.tick(direction)
+	queue_redraw()
+	
+func land():
+	animation_handler.set_state("jump_end")
+	
+func ang_accel() -> float:
+	return -1 * (gravity/radius) * sin(theta)
+	
+func _draw():
+	if isGrappling:
+		#draw_line(Vector2(0, 0), -position + hookPos, Color.BLACK, 5.0)
+		get_node("Line2D").points[1] = Vector2(-position + hookPos)
+		get_node("Line2D").visible = true
+
+func reset(delta):
+	wasGrappling = isGrappling
+	if position.distance_to(nearestHook) < radius || isGrappling:
+		isGrappling = !isGrappling
+		radius = position.distance_to(nearestHook)
+		radX = position.x - nearestHook.x
+		theta = -asin(radX/radius) 
+		
+		if !isGrappling:
+			get_node("Line2D").visible = false
+			radius = 100.0
+	hookPos = nearestHook
+
 	basic_movement_handler.tick(delta)
 	dash_handler.tick()
 
