@@ -28,7 +28,6 @@ func _ready():
 	health_bar.max_value = 10  # Set max value
 	health_bar.value = health_bar.max_value
 	
-
 	# Create a new Theme
 	var theme = Theme.new()
 	health_bar.theme = theme  # Assign the theme to the ProgressBar
@@ -71,7 +70,6 @@ enum GROUND_STATE {
 	TOUCHDOWN
 }
 var player_state = GROUND_STATE.GROUNDED
-
 
 	
 func _physics_process(delta):
