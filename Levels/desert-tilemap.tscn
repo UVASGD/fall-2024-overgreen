@@ -572,11 +572,11 @@ texture = ExtResource("1_n1xi3")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_5e63o")
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node2D"]
 
 [node name="Pixil-frame-0(2)" type="Sprite2D" parent="."]
-position = Vector2(1145.5, 721)
-scale = Vector2(1.546, 1.42778)
+position = Vector2(1142.5, 771.75)
+scale = Vector2(1.542, 1.23982)
 texture = ExtResource("1_3xexs")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

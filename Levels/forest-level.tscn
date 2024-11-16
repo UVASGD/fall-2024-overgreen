@@ -999,8 +999,8 @@ scale = Vector2(0.650045, 0.603334)
 texture = ExtResource("1_ny88u")
 
 [node name="Forest-level-background" type="Sprite2D" parent="Forest-level-background"]
-position = Vector2(1394.36, 12.8862)
-scale = Vector2(0.76164, 0.9735)
+position = Vector2(1391.9, 12.8862)
+scale = Vector2(0.758562, 0.9735)
 texture = ExtResource("1_ny88u")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

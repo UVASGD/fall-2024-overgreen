@@ -686,11 +686,11 @@ texture = ExtResource("1_03gi7")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_i6yyk")
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node2D"]
 
 [node name="OvergroundCityBackg" type="Sprite2D" parent="."]
-position = Vector2(1277.5, 595)
-scale = Vector2(7.94062, 6.56667)
+position = Vector2(1274.5, 593)
+scale = Vector2(7.92187, 6.54445)
 texture = ExtResource("1_xrlne")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
