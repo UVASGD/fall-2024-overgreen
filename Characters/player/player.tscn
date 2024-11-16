@@ -172,7 +172,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-15, -17)
 sprite_frames = SubResource("SpriteFrames_sk2h2")
-animation = &"idle"
+animation = &"jump_start"
 autoplay = "idle"
 centered = false
 
