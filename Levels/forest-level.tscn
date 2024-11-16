@@ -1,11 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://duor3aaib5beu"]
 
-[ext_resource type="Texture2D" path="res://Art/forest-level-background.png" id="1_ny88u"]
-[ext_resource type="Texture2D" path="res://Art/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="1_w8kyo"]
-[gd_scene load_steps=9 format=4 uid="uid://das6fstnmtjvp"]
-
 [ext_resource type="Texture2D" uid="uid://b1vdtqfdi175o" path="res://Art/forest-level-background.png" id="1_ny88u"]
-[ext_resource type="Texture2D" uid="uid://denxtg2jajhr2" path="res://Art/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="1_w8kyo"]
+[ext_resource type="Texture2D" uid="uid://denxtg2jajhr2" path="res://Art/Jungle Asset Pack/jungle tileset/files/jungle tileset.png" id="1_w8kyo"]
 [ext_resource type="Texture2D" uid="uid://bclj0v7x2k21g" path="res://Art/brackeys_platformer_assets/sprites/platforms.png" id="2_mbuo4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uq7wq"]
