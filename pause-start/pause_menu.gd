@@ -40,8 +40,6 @@ func openOptions(fromControl):
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = false
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = false
-	get_node("option/MarginContainer/optionContainer/HBoxContainer/musicSlider").editable = true
-	get_node("option/MarginContainer/optionContainer/HBoxContainer2/sfxSlider").editable = true
 	get_node("option/MarginContainer/optionContainer/Back").disabled = false
 	
 	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
@@ -59,8 +57,6 @@ func closeOptions():
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
-	get_node("option/MarginContainer/optionContainer/HBoxContainer/musicSlider").editable = false
-	get_node("option/MarginContainer/optionContainer/HBoxContainer2/sfxSlider").editable = false
 	get_node("option/MarginContainer/optionContainer/Back").disabled = true
 	
 	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
@@ -84,8 +80,6 @@ func openQuit():
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
-	get_node("option/MarginContainer/optionContainer/HBoxContainer/musicSlider").editable = false
-	get_node("option/MarginContainer/optionContainer/HBoxContainer2/sfxSlider").editable = false
 	get_node("option/MarginContainer/optionContainer/Back").disabled = true
 	
 	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
@@ -103,8 +97,6 @@ func closeQuit():
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
-	get_node("option/MarginContainer/optionContainer/HBoxContainer/musicSlider").editable = false
-	get_node("option/MarginContainer/optionContainer/HBoxContainer2/sfxSlider").editable = false
 	get_node("option/MarginContainer/optionContainer/Back").disabled = true
 	
 	get_node("InputSettings").set_process_mode(PROCESS_MODE_DISABLED)
@@ -130,8 +122,6 @@ func openControl():
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = true
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = true
-	get_node("option/MarginContainer/optionContainer/HBoxContainer/musicSlider").editable = false
-	get_node("option/MarginContainer/optionContainer/HBoxContainer2/sfxSlider").editable = false
 	get_node("option/MarginContainer/optionContainer/Back").disabled = true
 	
 	get_node("InputSettings").set_process_mode(PROCESS_MODE_ALWAYS)
@@ -151,7 +141,6 @@ func closeControl():
 	
 	get_node("option/MarginContainer/optionContainer/Controls").disabled = false
 	get_node("option/MarginContainer/optionContainer/Fullscreen").disabled = false
-	get_node("option/MarginContainer/optionContainer/musicSlider").editable = true
 	get_node("option/MarginContainer/optionContainer/sfxSlider").editable = true
 	get_node("option/MarginContainer/optionContainer/Back").disabled = false
 	

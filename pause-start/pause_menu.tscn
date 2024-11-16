@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://s4sxgwrmwdsg"]
+[gd_scene load_steps=12 format=3 uid="uid://s4sxgwrmwdsg"]
 
 [ext_resource type="Script" path="res://pause-start/pause_menu.gd" id="1_5um6b"]
 [ext_resource type="Shader" path="res://pause-start/pause-menu.gdshader" id="2_fgmx2"]
 [ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://pause-start/DeliusSwashCaps-Regular.ttf" id="3_gmnj7"]
-[ext_resource type="PackedScene" uid="uid://db2cbpj1i0w6n" path="res://pause-start/volume_slider.tscn" id="3_i6k1d"]
 [ext_resource type="PackedScene" uid="uid://bvi37umd6qho6" path="res://pause-start/input_settings.tscn" id="4_s2bf1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_og1m7"]
@@ -574,6 +573,7 @@ layout_mode = 2
 
 [node name="Controls" type="Button" parent="option/MarginContainer/optionContainer"]
 process_mode = 2
+custom_minimum_size = Vector2(0, 33)
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("3_gmnj7")
@@ -582,58 +582,16 @@ text = "Controls"
 
 [node name="Fullscreen" type="Button" parent="option/MarginContainer/optionContainer"]
 process_mode = 2
+custom_minimum_size = Vector2(0, 33)
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("3_gmnj7")
 theme_override_font_sizes/font_size = 16
 text = "Go Fullscreen"
 
-[node name="Control" type="Control" parent="option/MarginContainer/optionContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="option/MarginContainer/optionContainer"]
-layout_mode = 2
-
-[node name="Music" type="Label" parent="option/MarginContainer/optionContainer/HBoxContainer"]
-process_mode = 2
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_gmnj7")
-theme_override_font_sizes/font_size = 11
-text = "        Music        "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="musicSlider" parent="option/MarginContainer/optionContainer/HBoxContainer" instance=ExtResource("3_i6k1d")]
-process_mode = 2
-layout_mode = 2
-size_flags_horizontal = 3
-bus_name = "music"
-
-[node name="Control2" type="Control" parent="option/MarginContainer/optionContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="option/MarginContainer/optionContainer"]
-layout_mode = 2
-
-[node name="Sound Effects" type="Label" parent="option/MarginContainer/optionContainer/HBoxContainer2"]
-process_mode = 2
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_gmnj7")
-theme_override_font_sizes/font_size = 11
-text = " Sound Effects "
-horizontal_alignment = 1
-
-[node name="sfxSlider" parent="option/MarginContainer/optionContainer/HBoxContainer2" instance=ExtResource("3_i6k1d")]
-process_mode = 2
-layout_mode = 2
-size_flags_horizontal = 3
-bus_name = "sfx"
-
-[node name="Control3" type="Control" parent="option/MarginContainer/optionContainer"]
-layout_mode = 2
-
 [node name="Back" type="Button" parent="option/MarginContainer/optionContainer"]
 process_mode = 2
+custom_minimum_size = Vector2(0, 33)
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("3_gmnj7")
@@ -736,9 +694,6 @@ libraries = {
 
 [node name="musicPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"music"
-
-[node name="sfxPlayer" type="AudioStreamPlayer" parent="."]
-bus = &"sfx"
 
 [connection signal="pressed" from="pause/MarginContainer/pauseContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="pause/MarginContainer/pauseContainer/Options" to="." method="_on_options_pressed"]
