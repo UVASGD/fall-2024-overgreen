@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b20tp37dh3xbn"
-path="res://.godot/imported/underground_green.png-0fad859f11bf9866835ebbf04f3598d6.ctex"
+uid="uid://cykgiowecvox3"
+path="res://.godot/imported/underground 2.png-79af3990b0e89ad91b24c0d2feab138c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/underground_green.png"
-dest_files=["res://.godot/imported/underground_green.png-0fad859f11bf9866835ebbf04f3598d6.ctex"]
+source_file="res://Art/underground 2.png"
+dest_files=["res://.godot/imported/underground 2.png-79af3990b0e89ad91b24c0d2feab138c.ctex"]
 
 [params]
 
