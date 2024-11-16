@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b02iv5mmohcdt"
-path="res://.godot/imported/Overgreen_Logo_Dark.png-e73149402f438e1fa96f759ff6047c04.ctex"
+uid="uid://d0v11sf2n5l0b"
+path="res://.godot/imported/Screenshot 2024-11-15 at 8.22.02 PM.png-24afc8186bfddf0ca6be88ac22b585f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Overgreen_Logo_Dark.png"
-dest_files=["res://.godot/imported/Overgreen_Logo_Dark.png-e73149402f438e1fa96f759ff6047c04.ctex"]
+source_file="res://pause-start/Screenshot 2024-11-15 at 8.22.02 PM.png"
+dest_files=["res://.godot/imported/Screenshot 2024-11-15 at 8.22.02 PM.png-24afc8186bfddf0ca6be88ac22b585f2.ctex"]
 
 [params]
 

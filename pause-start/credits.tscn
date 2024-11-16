@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cld370usajede"]
+[gd_scene load_steps=5 format=3 uid="uid://cld370usajede"]
 
-[ext_resource type="Script" path="res://credits.gd" id="1_pm23s"]
-[ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://DeliusSwashCaps-Regular.ttf" id="2_uxuyj"]
+[ext_resource type="Script" path="res://pause-start/credits.gd" id="1_pm23s"]
+[ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://pause-start/DeliusSwashCaps-Regular.ttf" id="2_uxuyj"]
+[ext_resource type="Texture2D" uid="uid://d0v11sf2n5l0b" path="res://pause-start/Screenshot 2024-11-15 at 8.22.02 PM.png" id="3_0s13a"]
+[ext_resource type="Texture2D" uid="uid://df3tbptc2pfxa" path="res://Art/treeBG.png" id="3_5ll53"]
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -20,9 +22,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -27.5
-offset_top = -39.0
+offset_top = -47.0
 offset_right = 27.5
-offset_bottom = -8.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -30,6 +32,7 @@ grow_vertical = 0
 layout_mode = 2
 
 [node name="Back" type="Button" parent="PanelContainer/MarginContainer"]
+z_index = 2
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_uxuyj")
@@ -52,5 +55,16 @@ layout_mode = 2
 
 [node name="Label2" type="Label" parent="PanelContainer2/GridContainer"]
 layout_mode = 2
+
+[node name="credits" type="Sprite2D" parent="PanelContainer2"]
+z_index = 1
+position = Vector2(239.25, 109.5)
+scale = Vector2(0.269942, 0.263533)
+texture = ExtResource("3_0s13a")
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer2"]
+position = Vector2(551, 145)
+scale = Vector2(0.313, 0.313)
+texture = ExtResource("3_5ll53")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Back" to="." method="_on_back_pressed"]

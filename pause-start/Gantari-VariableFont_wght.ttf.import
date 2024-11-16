@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b0h52lpcn03jx"
-path="res://.godot/imported/Borel-Regular.ttf-43302f81fa5be8a8269ac54dbfa3d820.fontdata"
+uid="uid://bi7g6wndyimdb"
+path="res://.godot/imported/Gantari-VariableFont_wght.ttf-a4dc48675c52c60fecbba19ced25c8c0.fontdata"
 
 [deps]
 
-source_file="res://Borel-Regular.ttf"
-dest_files=["res://.godot/imported/Borel-Regular.ttf-43302f81fa5be8a8269ac54dbfa3d820.fontdata"]
+source_file="res://pause-start/Gantari-VariableFont_wght.ttf"
+dest_files=["res://.godot/imported/Gantari-VariableFont_wght.ttf-a4dc48675c52c60fecbba19ced25c8c0.fontdata"]
 
 [params]
 

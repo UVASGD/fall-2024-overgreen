@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://hp424lhausur"
-path="res://.godot/imported/TwinkleStar-Regular.ttf-42219a615e1b4e588b2e4a74d0e35bc8.fontdata"
+uid="uid://b0h52lpcn03jx"
+path="res://.godot/imported/Borel-Regular.ttf-d9331596d55b6b5ccedd0abf99d54eed.fontdata"
 
 [deps]
 
-source_file="res://TwinkleStar-Regular.ttf"
-dest_files=["res://.godot/imported/TwinkleStar-Regular.ttf-42219a615e1b4e588b2e4a74d0e35bc8.fontdata"]
+source_file="res://pause-start/Borel-Regular.ttf"
+dest_files=["res://.godot/imported/Borel-Regular.ttf-d9331596d55b6b5ccedd0abf99d54eed.fontdata"]
 
 [params]
 

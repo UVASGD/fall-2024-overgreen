@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://l13vsimldkel"
-path="res://.godot/imported/DeliusSwashCaps-Regular.ttf-b41953bcfd8c24848b49403373c82f65.fontdata"
+uid="uid://hp424lhausur"
+path="res://.godot/imported/TwinkleStar-Regular.ttf-eb7b26d2f09b82eb2ceca3b2ae28e4c9.fontdata"
 
 [deps]
 
-source_file="res://DeliusSwashCaps-Regular.ttf"
-dest_files=["res://.godot/imported/DeliusSwashCaps-Regular.ttf-b41953bcfd8c24848b49403373c82f65.fontdata"]
+source_file="res://pause-start/TwinkleStar-Regular.ttf"
+dest_files=["res://.godot/imported/TwinkleStar-Regular.ttf-eb7b26d2f09b82eb2ceca3b2ae28e4c9.fontdata"]
 
 [params]
 

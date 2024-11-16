@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bqmtyc1n5fjj"]
 
-[ext_resource type="PackedScene" uid="uid://bi1eo2h84efqv" path="res://input_button.tscn" id="2_gwvbf"]
+[ext_resource type="PackedScene" uid="uid://bi1eo2h84efqv" path="res://pause-start/input_button.tscn" id="1_bn43t"]
 
 [node name="PanelContainer" type="PanelContainer"]
 anchors_preset = 8
@@ -33,5 +33,5 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="InputButton" parent="MarginContainer/controlContainer/ScrollContainer/ActionList" instance=ExtResource("2_gwvbf")]
+[node name="InputButton" parent="MarginContainer/controlContainer/ScrollContainer/ActionList" instance=ExtResource("1_bn43t")]
 layout_mode = 2

@@ -212,7 +212,7 @@ func _on_fullscreen_pressed() -> void:
 
 func _on_to_main_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://start_menu.tscn")
+	get_tree().change_scene_to_file("res://pause-start/start_menu.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

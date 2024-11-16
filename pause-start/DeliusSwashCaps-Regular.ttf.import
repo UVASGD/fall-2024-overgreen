@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bi7g6wndyimdb"
-path="res://.godot/imported/Gantari-VariableFont_wght.ttf-bfa5d6872803c684a34844248589bfdc.fontdata"
+uid="uid://l13vsimldkel"
+path="res://.godot/imported/DeliusSwashCaps-Regular.ttf-049c9af2f27074de6f5e02250661fb06.fontdata"
 
 [deps]
 
-source_file="res://Gantari-VariableFont_wght.ttf"
-dest_files=["res://.godot/imported/Gantari-VariableFont_wght.ttf-bfa5d6872803c684a34844248589bfdc.fontdata"]
+source_file="res://pause-start/DeliusSwashCaps-Regular.ttf"
+dest_files=["res://.godot/imported/DeliusSwashCaps-Regular.ttf-049c9af2f27074de6f5e02250661fb06.fontdata"]
 
 [params]
 

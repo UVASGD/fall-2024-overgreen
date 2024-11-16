@@ -1,6 +1,6 @@
 extends Control
 
-@onready var input_button_scene = preload("res://input_button.tscn")
+@onready var input_button_scene = preload("res://pause-start/input_button.tscn")
 @onready var action_list = $PanelContainer/MarginContainer/controlContainer/ScrollContainer/ActionList
 var is_remapping = false
 var action_to_remap = null
@@ -12,6 +12,8 @@ var input_actions = {
 	"left": "Move Left",
 	"right": "Move Right",
 	"jump": "Jump",
+	"dash": "Dash",
+	"grapple": "Grapple"
 }
 
 func _ready():

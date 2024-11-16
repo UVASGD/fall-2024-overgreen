@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bi1eo2h84efqv"]
 
-[ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://DeliusSwashCaps-Regular.ttf" id="1_0knke"]
+[ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://pause-start/DeliusSwashCaps-Regular.ttf" id="1_0knke"]
 
 [node name="InputButton" type="Button"]
-custom_minimum_size = Vector2(0, 12)
+custom_minimum_size = Vector2(0, 10)
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 8.0
@@ -32,19 +32,20 @@ layout_mode = 2
 layout_mode = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("1_0knke")
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "action name"
 vertical_alignment = 1
 
 [node name="spacer" type="Control" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 mouse_filter = 1
 
 [node name="labelInput" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("1_0knke")
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 5
 text = "input key"
 vertical_alignment = 1
