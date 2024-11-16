@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" path="res://Art/forest-level-background.png" id="1_ny88u"]
 [ext_resource type="Texture2D" path="res://Art/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="1_w8kyo"]
-[gd_scene load_steps=9 format=4 uid="uid://das6fstnmtjvp"]
 
 [ext_resource type="Texture2D" uid="uid://b1vdtqfdi175o" path="res://Art/forest-level-background.png" id="1_ny88u"]
 [ext_resource type="Texture2D" uid="uid://denxtg2jajhr2" path="res://Art/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="1_w8kyo"]
