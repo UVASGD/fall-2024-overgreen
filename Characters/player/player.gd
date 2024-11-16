@@ -54,6 +54,11 @@ func _ready():
 	bg_style.corner_radius_bottom_left = 10
 	bg_style.corner_radius_bottom_right = 10
 	theme.set_stylebox("panel", "ProgressBar", bg_style)
+	
+	theta = deg_to_rad(90)
+	isGrappling = false
+	wasGrappling = false
+	radX = 0
 
 
 @onready var grapple_scene = preload("res://Characters/hook.tscn")
@@ -76,11 +81,11 @@ var swingForce = 0
 var radX
 
 
-func _ready():
-	theta = deg_to_rad(90)
-	isGrappling = false
-	wasGrappling = false
-	radX = 0
+#func _ready():
+	#theta = deg_to_rad(90)
+	#isGrappling = false
+	#wasGrappling = false
+	#radX = 0
 	
 
 
@@ -207,8 +212,8 @@ func _process(_delta):
 			recorded_velocity_y = 0 # reset value
 			player_state = GROUND_STATE.GROUNDED
 
-func land():
-	animation_handler.set_state("jump_end")
+#func land():
+	#animation_handler.set_state("jump_end")
 
 func apply_fall_damage(velocity):
 

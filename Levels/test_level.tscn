@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cu8xld6x5py1b"]
+[gd_scene load_steps=24 format=4 uid="uid://cu8xld6x5py1b"]
 
 [ext_resource type="Texture2D" uid="uid://j0u8fpyjtkws" path="res://Art/Jungle Asset Pack/parallax background/plx-1.png" id="1_5erga"]
 [ext_resource type="PackedScene" uid="uid://c77vu71a3e5je" path="res://Characters/Mobs/bird_mob.tscn" id="1_de7tu"]
 [ext_resource type="Texture2D" uid="uid://bclj0v7x2k21g" path="res://Art/brackeys_platformer_assets/sprites/platforms.png" id="1_nttq1"]
 [ext_resource type="Script" path="res://Levels/test_level.gd" id="1_tlwby"]
-[ext_resource type="Texture2D" uid="uid://denxtg2jajhr2" path="res://Art/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="2_122qe"]
 [ext_resource type="Texture2D" uid="uid://denxtg2jajhr2" path="res://Art/Jungle Asset Pack/jungle tileset/files/jungle tileset.png" id="2_122qe"]
 [ext_resource type="Texture2D" uid="uid://bx3sfllh0q2m4" path="res://Art/Jungle Asset Pack/parallax background/plx-2.png" id="2_t5i27"]
 [ext_resource type="Texture2D" uid="uid://b24pa3cgidw6t" path="res://Art/Jungle Asset Pack/parallax background/plx-3.png" id="3_gl2xw"]
@@ -49,7 +48,6 @@ texture = ExtResource("1_nttq1")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxpf2"]
 texture = ExtResource("2_122qe")
 19:1/0 = 0
-21:1/0 = 0
 19:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 21:1/0 = 0
 21:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -60,17 +58,6 @@ texture = ExtResource("2_122qe")
 41:1/0 = 0
 43:1/0 = 0
 4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-13:2/0 = 0
-13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-15:2/0 = 0
-19:2/0 = 0
-21:2/0 = 0
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:2/0 = 0
 5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -108,12 +95,6 @@ texture = ExtResource("2_122qe")
 6:3/0 = 0
 7:3/0 = 0
 8:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-15:3/0 = 0
-19:3/0 = 0
-20:3/0 = 0
-21:3/0 = 0
 8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:3/0 = 0
 10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -144,14 +125,6 @@ texture = ExtResource("2_122qe")
 6:4/0 = 0
 7:4/0 = 0
 8:4/0 = 0
-13:4/0 = 0
-14:4/0 = 0
-15:4/0 = 0
-16:4/0 = 0
-17:4/0 = 0
-19:4/0 = 0
-20:4/0 = 0
-21:4/0 = 0
 8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:4/0 = 0
 13:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -185,10 +158,6 @@ texture = ExtResource("2_122qe")
 6:5/0 = 0
 7:5/0 = 0
 8:5/0 = 0
-15:5/0 = 0
-19:5/0 = 0
-20:5/0 = 0
-21:5/0 = 0
 8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 15:5/0 = 0
 15:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -210,21 +179,6 @@ texture = ExtResource("2_122qe")
 41:5/0 = 0
 43:5/0 = 0
 4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-15:6/0 = 0
-19:6/0 = 0
-21:6/0 = 0
-25:6/0 = 0
-27:6/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-19:7/0 = 0
-21:7/0 = 0
 4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:6/0 = 0
 5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -267,16 +221,6 @@ texture = ExtResource("2_122qe")
 44:7/0 = 0
 45:7/0 = 0
 4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-16:8/0 = 0
-17:8/0 = 0
 4:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:8/0 = 0
 5:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -306,18 +250,6 @@ texture = ExtResource("2_122qe")
 44:8/0 = 0
 45:8/0 = 0
 4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-15:9/0 = 0
-16:9/0 = 0
-17:9/0 = 0
-18:9/0 = 0
 4:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:9/0 = 0
 6:9/0 = 0
@@ -362,14 +294,6 @@ texture = ExtResource("2_122qe")
 44:9/0 = 0
 45:9/0 = 0
 4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
-15:10/0 = 0
-16:10/0 = 0
-17:10/0 = 0
-18:10/0 = 0
 4:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:10/0 = 0
 5:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -398,9 +322,6 @@ texture = ExtResource("2_122qe")
 44:10/0 = 0
 45:10/0 = 0
 10:11/0 = 0
-11:11/0 = 0
-16:11/0 = 0
-17:11/0 = 0
 10:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:11/0 = 0
 11:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -651,12 +572,13 @@ dash_time = 1.0
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
-[node name="Hooks" type="Node2D" parent="."]
 [node name="hitbox" type="Area2D" parent="Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/hitbox"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ft4t2")
+
+[node name="Hooks" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(79, 99)
