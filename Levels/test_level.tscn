@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cu8xld6x5py1b"]
+[gd_scene load_steps=23 format=3 uid="uid://cu8xld6x5py1b"]
 
 [ext_resource type="Texture2D" uid="uid://j0u8fpyjtkws" path="res://Art/Jungle Asset Pack/parallax background/plx-1.png" id="1_5erga"]
 [ext_resource type="PackedScene" uid="uid://c77vu71a3e5je" path="res://Characters/Mobs/bird_mob.tscn" id="1_de7tu"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cm6d2vmg8kqli" path="res://Characters/Mobs/snake_mob.tscn" id="13_6qlcv"]
 [ext_resource type="PackedScene" uid="uid://kn3ryv1td3pe" path="res://Levels/onscreen_timer.tscn" id="13_lo4d2"]
 [ext_resource type="PackedScene" uid="uid://dc40atxfoc5ba" path="res://Levels/underground-city.tscn" id="13_scs7d"]
+[ext_resource type="PackedScene" uid="uid://ddvepnfuw6g8n" path="res://Characters/hook.tscn" id="16_mcukn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft4t2"]
 size = Vector2(9, 20)
@@ -30,6 +31,47 @@ size = Vector2(22, 22)
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_tlwby")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_x3u2m")]
+offset_left = 6.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = -5.0
+
+[node name="ColorRect2" parent="CanvasLayer/PauseMenu" index="0"]
+visible = false
+
+[node name="pause" parent="CanvasLayer/PauseMenu" index="1"]
+visible = false
+
+[node name="option" parent="CanvasLayer/PauseMenu" index="2"]
+visible = false
+
+[node name="quit" parent="CanvasLayer/PauseMenu" index="3"]
+visible = false
+
+[node name="InputSettings" parent="CanvasLayer/PauseMenu" index="4"]
+process_mode = 4
+
+[node name="PanelContainer" parent="CanvasLayer/PauseMenu/InputSettings" index="0"]
+visible = false
+
+[node name="musicPlayer" parent="CanvasLayer/PauseMenu" index="6"]
+bus = &"Master"
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 73.0
+offset_bottom = 13.0
+max_value = 10.0
+step = 0.5
+show_percentage = false
+
+[node name="Onscreen Timer" parent="CanvasLayer" instance=ExtResource("13_lo4d2")]
+position = Vector2(217, -1)
 
 [node name="Plx-1" type="Sprite2D" parent="."]
 visible = false
@@ -88,6 +130,10 @@ position = Vector2(5849, -801)
 [node name="OvergroundCity" parent="." instance=ExtResource("12_fr14p")]
 position = Vector2(1, 0)
 
+[node name="hook" parent="." instance=ExtResource("16_mcukn")]
+visible = false
+position = Vector2(507, 352)
+
 [node name="Player" parent="." instance=ExtResource("3_u06ib")]
 position = Vector2(79, 99)
 
@@ -100,51 +146,12 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ft4t2")
 
-[node name="Hooks" type="Node2D" parent="."]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(79, 99)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_x3u2m")]
-
-[node name="ColorRect2" parent="CanvasLayer/PauseMenu" index="0"]
-visible = false
-
-[node name="pause" parent="CanvasLayer/PauseMenu" index="1"]
-visible = false
-
-[node name="option" parent="CanvasLayer/PauseMenu" index="2"]
-visible = false
-
-[node name="quit" parent="CanvasLayer/PauseMenu" index="3"]
-visible = false
-
-[node name="InputSettings" parent="CanvasLayer/PauseMenu" index="4"]
-process_mode = 4
-
-[node name="PanelContainer" parent="CanvasLayer/PauseMenu/InputSettings" index="0"]
-visible = false
-
-[node name="musicPlayer" parent="CanvasLayer/PauseMenu" index="6"]
-bus = &"Master"
-
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 73.0
-offset_bottom = 13.0
-max_value = 10.0
-step = 0.5
-show_percentage = false
-
-[node name="Onscreen Timer" parent="CanvasLayer" instance=ExtResource("13_lo4d2")]
-position = Vector2(217, -1)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
@@ -165,6 +172,8 @@ shape = SubResource("RectangleShape2D_f0mdr")
 
 [node name="SnakeMob" parent="." instance=ExtResource("13_6qlcv")]
 position = Vector2(-280, 143)
+
+[node name="Hooks" type="Node2D" parent="."]
 
 [connection signal="area_entered" from="Player/hitbox" to="Player" method="_on_hitbox_area_entered"]
 

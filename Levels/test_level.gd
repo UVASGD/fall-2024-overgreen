@@ -6,7 +6,8 @@ extends Node2D
 var hookStarts = [
 	Vector2(800,0),
 	Vector2(150, 0),
-	Vector2(400, 0)
+	Vector2(400, 0),
+	Vector2(210, 160)
 ]
 	
 func _create_hooks():
