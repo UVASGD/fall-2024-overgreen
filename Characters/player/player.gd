@@ -67,8 +67,6 @@ func _ready():
 
 
 @onready var grapple_scene = preload("res://Characters/hook.tscn")
-
-
 var hookPos: Vector2
 var direction: Vector2 = Vector2.ZERO
 var theta: float
@@ -84,16 +82,6 @@ var xvel
 var swingSpeed = 20
 var swingForce = 0
 var radX
-
-
-#func _ready():
-	#theta = deg_to_rad(90)
-	#isGrappling = false
-	#wasGrappling = false
-	#radX = 0
-	
-
-
 var currentHealth: float = 10
 var healthDeduction: float = 0
 var fallDamage: float = 0

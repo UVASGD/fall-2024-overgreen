@@ -13,7 +13,7 @@ var input_actions = {
 	"right": "Move Right",
 	"jump": "Jump",
 	"dash": "Dash",
-	"grapple": "Grapple"
+	"grappling": "Grapple"
 }
 
 func _ready():
