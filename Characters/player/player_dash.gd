@@ -116,3 +116,7 @@ func speed_at_time(t: float, v0: float, vf: float, T: float) -> float:
 	# https://www.desmos.com/calculator/vin4sytkdf
 	var v_t = A * cos(omega * t) + C
 	return v_t
+
+# returns if character is dashing
+func is_dashing():
+	return dashing

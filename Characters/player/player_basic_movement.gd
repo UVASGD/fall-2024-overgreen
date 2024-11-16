@@ -13,6 +13,7 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var velocity: Vector2
 var was_in_air: bool = false
+var has_double_jumped = false
 
 func _ready():
 	player = get_parent()
@@ -31,21 +32,34 @@ func tick(delta):
 		#TODO: make signal to sprite_anim
 
 		
+		has_double_jumped = false
+		# todo: change to signal method
+		player.land()
 		was_in_air = false
 	# handle jump
 	if Input.is_action_just_pressed("jump"):
+		#if player.is_on_floor() or player.is_on_wall():
+			# Normal jump from floor
 		if player.is_on_floor():
 			# normal jump from floor
 			jump()
+		elif not has_double_jumped:
+			# Double jump in air
+			player.velocity.y = player.double_jump_velocity
+			has_double_jumped = true
 	# get the input direction and handle the movement/deceleration
 	# as good practice, you should replace UI actions with custom gameplay actions
 	player.direction = Input.get_vector("left", "right", "up", "down")
 	player.velocity.x = move_toward(player.velocity.x, 0, player.speed)
 	player.velocity.x = sign(player.direction.x) * player.speed # project vector to x axis with sign()
 	player.move_and_slide()
-
+	
+func get_velocity():
+	return player.velocity
+	
 func jump():
 	player.velocity.y = player.jump_velocity
+	player.animated_sprite.play("jump_start")
 	player.animation_handler.set_state("jump_start")
 
 func _on_lock_signal(locked):
