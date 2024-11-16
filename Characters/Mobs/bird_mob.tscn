@@ -1,23 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://c77vu71a3e5je"]
+[gd_scene load_steps=12 format=3 uid="uid://c77vu71a3e5je"]
 
 [ext_resource type="Script" path="res://bird_mob.gd" id="1_f273b"]
-[ext_resource type="Texture2D" uid="uid://cpwj52ufbae28" path="res://icon.svg" id="2_xw7ec"]
+[ext_resource type="Texture2D" uid="uid://c7xklkr00k46c" path="res://Art/Bat/Spritesheets/Blue_Flying.png" id="2_s2s7t"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_burpo"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hhnwt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ew0s"]
+atlas = ExtResource("2_s2s7t")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvn10"]
+atlas = ExtResource("2_s2s7t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uftpb"]
+atlas = ExtResource("2_s2s7t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avrks"]
+atlas = ExtResource("2_s2s7t")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7eu"]
+atlas = ExtResource("2_s2s7t")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1if"]
+atlas = ExtResource("2_s2s7t")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_054j4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_xw7ec")
+"texture": SubResource("AtlasTexture_2ew0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvn10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uftpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avrks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1if")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Bat",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k2ai8"]
-radius = 24.0
+radius = 6.0
 
 [node name="BirdMob" type="CharacterBody2D"]
 script = ExtResource("1_f273b")
@@ -25,7 +64,8 @@ script = ExtResource("1_f273b")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_burpo")
 scale = Vector2(0.314453, 0.263672)
-sprite_frames = SubResource("SpriteFrames_hhnwt")
+sprite_frames = SubResource("SpriteFrames_054j4")
+animation = &"Bat"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_k2ai8")
