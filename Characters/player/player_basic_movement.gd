@@ -48,7 +48,10 @@ func tick(delta):
 	player.velocity.x = move_toward(player.velocity.x, 0, player.speed)
 	player.velocity.x = player.direction.x * player.speed
 	player.move_and_slide()
-
+	
+func get_velocity():
+	return player.velocity
+	
 func jump():
 	player.velocity.y = player.jump_velocity
 	player.animation_handler.set_state("jump_start")
