@@ -27,7 +27,7 @@ var angVel = 0
 var t = 0
 var yvel
 var xvel
-var swingSpeed = 10
+var swingSpeed = 20
 var swingForce = 0
 var radX
 
@@ -44,12 +44,14 @@ func _physics_process(delta):
 	
 	if isGrappling == false:
 		
+		swingForce = 0
 		basic_movement_handler.tick(delta)
 		
-		if is_on_floor():
+		if is_on_floor() or is_on_wall():
 			yvel = 0
 			xvel = 0
 			wasGrappling = false
+			angVel = 0
 		
 		else:
 			if wasGrappling:
@@ -59,7 +61,7 @@ func _physics_process(delta):
 				position.x += xvel
 				
 	else:
-		
+	
 		angAccel = ang_accel() 
 		angVel += swingSpeed * angAccel * delta
 		theta += angVel * delta
@@ -76,26 +78,20 @@ func _physics_process(delta):
 				swingForce -= delta
 				angVel -= swingForce * delta
 				
-		
-		
+		move_and_slide()
+		if is_on_wall() or is_on_ceiling():
+			reset()
+			
 	#print(radius)
-	print("theta:" + str(theta))
-	print("angVel:" + str(angVel))
-	print("angAccel:" + str(angAccel))
-	
+	#print("theta:" + str(theta))
+	#print("angVel:" + str(angVel))
+	#print("angAccel:" + str(angAccel))
+	#print(isGrappling)
+	#print(wasGrappling)
+	print(is_on_wall())
 	
 	if Input.is_action_just_pressed("grappling"):
-		wasGrappling = isGrappling
-		if position.distance_to(nearestHook) < radius || isGrappling:
-			isGrappling = !isGrappling
-			radius = position.distance_to(nearestHook)
-			radX = position.x - nearestHook.x
-			theta = -asin(radX/radius) 
-			
-			if !isGrappling:
-				get_node("Line2D").visible = false
-				radius = 100.0
-		hookPos = nearestHook
+		reset()
 		
 	animation_handler.tick(direction)
 	queue_redraw()
@@ -111,6 +107,20 @@ func _draw():
 		#draw_line(Vector2(0, 0), -position + hookPos, Color.BLACK, 5.0)
 		get_node("Line2D").points[1] = Vector2(-position + hookPos)
 		get_node("Line2D").visible = true
+
+func reset():
+	wasGrappling = isGrappling
+	if position.distance_to(nearestHook) < radius || isGrappling:
+		isGrappling = !isGrappling
+		radius = position.distance_to(nearestHook)
+		radX = position.x - nearestHook.x
+		theta = -asin(radX/radius) 
+		
+		if !isGrappling:
+			get_node("Line2D").visible = false
+			radius = 100.0
+	hookPos = nearestHook
+
 
 
 

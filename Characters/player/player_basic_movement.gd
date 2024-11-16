@@ -44,3 +44,4 @@ func tick(delta):
 func jump():
 	player.velocity.y = player.jump_velocity
 	player.animated_sprite.play("jump_start")
+	
