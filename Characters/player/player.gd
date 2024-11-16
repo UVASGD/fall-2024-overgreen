@@ -66,14 +66,16 @@ func _physics_process(delta):
 		
 		position = Vector2(radius * cos(theta + (PI/2)), radius * sin(theta + (PI/2))) + hookPos 
 		
-		#if Input.is_action_pressed("left"):
-			#if swingForce <= 1.00:
-				#swingForce += delta
-				#angVel += swingForce * delta
-		#if Input.is_action_pressed("right"):
-			#if swingForce >= -1.00:
-				#swingForce -= delta
-				#angVel -= swingForce * delta
+		
+		if Input.is_action_pressed("left"):
+			if swingForce <= 1.00:
+				swingForce += delta
+				angVel += swingForce * delta
+		if Input.is_action_pressed("right"):
+			if swingForce >= -1.00:
+				swingForce -= delta
+				angVel -= swingForce * delta
+				
 		
 		
 	#print(radius)
