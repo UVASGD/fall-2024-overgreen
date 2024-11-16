@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cu8xld6x5py1b"]
+[gd_scene load_steps=20 format=3 uid="uid://cu8xld6x5py1b"]
 
 [ext_resource type="Texture2D" uid="uid://j0u8fpyjtkws" path="res://Art/Jungle Asset Pack/parallax background/plx-1.png" id="1_5erga"]
 [ext_resource type="PackedScene" uid="uid://c77vu71a3e5je" path="res://Characters/Mobs/bird_mob.tscn" id="1_de7tu"]
@@ -482,7 +482,6 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
@@ -511,8 +510,7 @@ texture = ExtResource("11_3qq23")
 position = Vector2(210, 99)
 shape = SubResource("RectangleShape2D_f0mdr")
 
-[connection signal="area_entered" from="Player/hitbox" to="Player" method="_on_hitbox_area_entered"]
-
 [node name="SnakeMob" parent="." instance=ExtResource("13_6qlcv")]
 position = Vector2(-280, 143)
 
+[connection signal="area_entered" from="Player/hitbox" to="Player" method="_on_hitbox_area_entered"]
