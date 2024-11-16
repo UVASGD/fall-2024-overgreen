@@ -61,7 +61,7 @@ func _physics_process(delta):
 				position.x += xvel
 				
 	else:
-	
+		
 		angAccel = ang_accel() 
 		angVel += swingSpeed * angAccel * delta
 		theta += angVel * delta
@@ -70,28 +70,30 @@ func _physics_process(delta):
 		
 		
 		if Input.is_action_pressed("left"):
-			if swingForce <= 1.00:
-				swingForce += delta
-				angVel += swingForce * delta
-		if Input.is_action_pressed("right"):
 			if swingForce >= -1.00:
 				swingForce -= delta
 				angVel -= swingForce * delta
+		if Input.is_action_pressed("right"):
+			if swingForce <= 1.00:
+				swingForce += 1 * delta
+				angVel += swingForce * delta
+		
 				
 		move_and_slide()
 		if is_on_wall() or is_on_ceiling():
-			reset()
+			reset(delta)
 			
 	#print(radius)
 	#print("theta:" + str(theta))
-	#print("angVel:" + str(angVel))
+	print("angVel:" + str(angVel))
 	#print("angAccel:" + str(angAccel))
 	#print(isGrappling)
 	#print(wasGrappling)
-	print(is_on_wall())
+	#print(swingForce)
+	#print(velocity.x)
 	
 	if Input.is_action_just_pressed("grappling"):
-		reset()
+		reset(delta)
 		
 	animation_handler.tick(direction)
 	queue_redraw()
@@ -108,7 +110,7 @@ func _draw():
 		get_node("Line2D").points[1] = Vector2(-position + hookPos)
 		get_node("Line2D").visible = true
 
-func reset():
+func reset(delta):
 	wasGrappling = isGrappling
 	if position.distance_to(nearestHook) < radius || isGrappling:
 		isGrappling = !isGrappling
