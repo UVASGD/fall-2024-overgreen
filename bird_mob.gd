@@ -11,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	position += dir * speed * delta
-	print("Direction:", dir, " Speed:", speed)
+	#print("Direction:", dir, " Speed:", speed)
 
 func _on_timer_timeout():
 	$Timer.wait_time = 1.5

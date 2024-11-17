@@ -82,7 +82,7 @@ func longdash():
 		player.velocity += Vector2(0, slowdown * ProjectSettings.get_setting("physics/2d/default_gravity") * get_physics_process_delta_time())
 		elapsed_time += get_process_delta_time()
 		dash_modifier = 1.0 + (roundf(elapsed_time * 10) / 10 * dash_per_second)
-		print(dash_modifier)
+		#print(dash_modifier)
 	# dash
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	if direction == Vector2.ZERO:

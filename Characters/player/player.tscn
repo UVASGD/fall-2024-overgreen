@@ -182,3 +182,6 @@ shape = SubResource("RectangleShape2D_4lifr")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 script = ExtResource("3_k2eqi")
+
+[node name="DashTimer" type="Timer" parent="."]
+one_shot = true

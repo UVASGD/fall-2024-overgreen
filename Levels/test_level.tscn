@@ -27,7 +27,7 @@ size = Vector2(9, 20)
 size = Vector2(13, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0mdr"]
-size = Vector2(22, 22)
+size = Vector2(22, 23)
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_tlwby")
@@ -103,9 +103,6 @@ position = Vector2(199.5, 137)
 scale = Vector2(1.88281, 1.73148)
 texture = ExtResource("5_rv1jq")
 
-[node name="BirdMob" parent="." instance=ExtResource("1_de7tu")]
-position = Vector2(-200, 28)
-
 [node name="Pixil-frame-0" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(917, 138)
@@ -156,24 +153,27 @@ drag_vertical_enabled = true
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(209.5, 98.5)
+position = Vector2(365, 149)
 shape = SubResource("RectangleShape2D_4sln3")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(210, 99)
+position = Vector2(365, 148)
 scale = Vector2(0.195313, 0.195313)
 texture = ExtResource("11_3qq23")
 
 [node name="mob1" type="Area2D" parent="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/mob1"]
-position = Vector2(210, 99)
+position = Vector2(365, 148.5)
 shape = SubResource("RectangleShape2D_f0mdr")
+
+[node name="Hooks" type="Node2D" parent="."]
 
 [node name="SnakeMob" parent="." instance=ExtResource("13_6qlcv")]
 position = Vector2(-280, 143)
 
-[node name="Hooks" type="Node2D" parent="."]
+[node name="BirdMob" parent="." instance=ExtResource("1_de7tu")]
+position = Vector2(103, 96)
 
 [connection signal="area_entered" from="Player/hitbox" to="Player" method="_on_hitbox_area_entered"]
 

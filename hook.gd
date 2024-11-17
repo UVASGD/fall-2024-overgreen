@@ -2,8 +2,8 @@ extends Node2D
 
 @export var startPos: Vector2
 
-func _ready():
-	position = startPos
+#func _ready():
+	#position = startPos
 	
 func _process(delta: float) -> void:
 	queue_redraw()

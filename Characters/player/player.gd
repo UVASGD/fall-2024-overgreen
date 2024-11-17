@@ -2,35 +2,42 @@ extends CharacterBody2D
 
 class_name Player
 
+@onready var dash_timer = $DashTimer
+@onready var SPEED : float = 0.0
+@onready var VELOCITY : float = 0.0
+
 @export var speed: float = 125.0
 @export var jump_velocity: float = -150.0
 @export var double_jump_velocity: float = -150.0
 @export var dash_speed: float = 200;
 @export var dash_time: float = 0.25;
 @export var dash_num_charges: float = 2.0;
+@onready var remaining_jumps = 2
+@onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 
 @export var nearestHook: Vector2
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 # Remove @onready and initialize the variables in _ready()
 var animation_handler: SpriteAnimation
-var dash_handler: PlayerDash
-var basic_movement_handler: PlayerBasicMovement
-var input_buffer_manager: InputBufferManager
+#var dash_handler: PlayerDash
+#var basic_movement_handler: PlayerBasicMovement
+#var input_buffer_manager: InputBufferManager
 
 func _ready():
 	animation_handler = SpriteAnimation.new($AnimatedSprite2D)
-	dash_handler = PlayerDash.new()
-	dash_handler.name = "PlayerDash"
-	dash_handler.set_constants(dash_speed, dash_time, dash_num_charges)
-	basic_movement_handler = PlayerBasicMovement.new()
-	basic_movement_handler.name = "PlayerBasicMovement"
-	input_buffer_manager = InputBufferManager.new()
-	input_buffer_manager.name = "InputBufferManager"
+	#dash_handler = PlayerDash.new()
+	#dash_handler.name = "PlayerDash"
+	#dash_handler.set_constants(dash_speed, dash_time, dash_num_charges)
+	#basic_movement_handler = PlayerBasicMovement.new()
+	#basic_movement_handler.name = "PlayerBasicMovement"
+	#input_buffer_manager = InputBufferManager.new()
+	#input_buffer_manager.name = "InputBufferManager"
 	# add to scene tree
-	add_child(dash_handler)
-	add_child(basic_movement_handler)
-	add_child(input_buffer_manager)
+	#add_child(dash_handler)
+	#add_child(basic_movement_handler)
+	#add_child(input_buffer_manager)
 
 	health_bar = get_parent().get_node("CanvasLayer").get_node("HealthBar")
 	health_bar.max_value = 10  # Set max value
@@ -73,7 +80,7 @@ var theta: float
 var isGrappling
 var wasGrappling
 var radius: float = 100.0
-var gravity: float = 20.0
+var grapple_gravity: float = 20.0
 var angAccel = 0
 var angVel = 0
 var t = 0
@@ -100,10 +107,41 @@ var player_state = GROUND_STATE.GROUNDED
 
 	
 func _physics_process(delta):
+	#self.velocity.x = move_toward(self.velocity.x, 0, self.speed)
+	#self.velocity.x = sign(self.direction.x) * self.speed # project vector to x axis with sign()
+	
+	if remaining_jumps < 2 and is_on_floor():
+		remaining_jumps = 2
+	
+	if Input.is_action_just_pressed("jump") and remaining_jumps > 0:
+		remaining_jumps -= 1
+		self.velocity.y = self.jump_velocity
+		self.animated_sprite.play("jump_start")
+		self.animation_handler.set_state("jump_start")
+	
+	if Input.is_action_just_pressed("dash"):
+		if(dash_timer.is_stopped()):
+			VELOCITY += 400 * direction.x
+			dash_timer.start()
+			await dash_timer.timeout
+
+	if is_on_wall_only() and Input.is_action_just_pressed("jump"):
+		var wall_normal = get_wall_normal()
+		VELOCITY = wall_normal.x * 200
+		velocity.y = -200
+
+	direction = Input.get_vector("left", "right", "up", "down")
+	SPEED = self.direction.x
+	VELOCITY += SPEED * 30 #<- adjust speed here
+	VELOCITY *= 0.825
+	velocity.x = VELOCITY
+	velocity.y += gravity * delta
+	move_and_slide()
+	
 	if isGrappling == false:
 		
 		swingForce = 0
-		basic_movement_handler.tick(delta)
+		#basic_movement_handler.tick(delta)
 		
 		if is_on_floor() or is_on_wall():
 			yvel = 0
@@ -135,7 +173,6 @@ func _physics_process(delta):
 			if swingForce <= 1.00:
 				swingForce += 1 * delta
 				angVel += swingForce * delta
-		
 				
 		move_and_slide()
 		if is_on_wall() or is_on_ceiling():
@@ -143,7 +180,7 @@ func _physics_process(delta):
 			
 	#print(radius)
 	#print("theta:" + str(theta))
-	print("angVel:" + str(angVel))
+	#print("angVel:" + str(angVel))
 	#print("angAccel:" + str(angAccel))
 	#print(isGrappling)
 	#print(wasGrappling)
@@ -160,15 +197,15 @@ func land():
 	animation_handler.set_state("jump_end")
 	animation_handler.tick(direction)
 	
-	var current_velocity_y = basic_movement_handler.get_velocity().y 
+	#var current_velocity_y = basic_movement_handler.get_velocity().y 
 	
 	match player_state:
 		GROUND_STATE.GROUNDED:
 			if not is_on_floor():
 				player_state = GROUND_STATE.MIDAIR
-		GROUND_STATE.MIDAIR:
-			if (current_velocity_y > recorded_velocity_y):
-				recorded_velocity_y = current_velocity_y  # Record the maximum velocity while in the air
+		#GROUND_STATE.MIDAIR:
+			#if (current_velocity_y > recorded_velocity_y):
+				#recorded_velocity_y = current_velocity_y  # Record the maximum velocity while in the air
 			if is_on_floor():
 				player_state = GROUND_STATE.TOUCHDOWN
 		GROUND_STATE.TOUCHDOWN:
@@ -177,7 +214,7 @@ func land():
 			player_state = GROUND_STATE.GROUNDED
 	
 func ang_accel() -> float:
-	return -1 * (gravity/radius) * sin(theta)
+	return -1 * (grapple_gravity/radius) * sin(theta)
 	
 func _draw():
 	if isGrappling:
@@ -198,9 +235,9 @@ func reset(delta):
 			radius = 100.0
 	hookPos = nearestHook
 
-	basic_movement_handler.tick(delta)
-	dash_handler.tick()
-	input_buffer_manager.tick(delta)
+	#basic_movement_handler.tick(delta)
+	#dash_handler.tick()
+	#input_buffer_manager.tick(delta)
 
 func _process(_delta):
 	animation_handler.tick(direction)

@@ -5,6 +5,10 @@ class_name PlayerBasicMovement
 signal lock_movement(lock: bool)
 signal set_anim(state: String, interupt: bool)
 
+@export var dash_speed: float = 200;
+@export var dash_time: float = 0.25;
+@export var dash_num_charges: float = 2.0;
+
 var player: Player
 var lock: bool
 
@@ -53,6 +57,8 @@ func tick(delta):
 	player.velocity.x = move_toward(player.velocity.x, 0, player.speed)
 	player.velocity.x = sign(player.direction.x) * player.speed # project vector to x axis with sign()
 	player.move_and_slide()
+
+		
 	
 func get_velocity():
 	return player.velocity
