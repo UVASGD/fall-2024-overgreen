@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1646p6sf231w"]
+[gd_scene load_steps=6 format=3 uid="uid://d1646p6sf231w"]
 
 [ext_resource type="Script" path="res://pause-start/menu.gd" id="1_chbrr"]
 [ext_resource type="Texture2D" uid="uid://df3tbptc2pfxa" path="res://Art/treeBG.png" id="2_3jhui"]
 [ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://pause-start/DeliusSwashCaps-Regular.ttf" id="3_41fkj"]
 [ext_resource type="Texture2D" uid="uid://butnn5t815m25" path="res://pause-start/Overgreen_Logo_Light.png" id="4_0wpmj"]
+[ext_resource type="AudioStream" uid="uid://ddsvg3bminghv" path="res://Music/Overgreen Theme Demo 2.mp3" id="5_8syne"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -111,6 +112,10 @@ text = "Quit"
 custom_minimum_size = Vector2(0, 11)
 layout_mode = 2
 size_flags_vertical = 8
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8syne")
+autoplay = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/Start New" to="." method="_on_start_new_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]

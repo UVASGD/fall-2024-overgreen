@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://br1yo7qhi7qsx"]
+
+[ext_resource type="Script" path="res://bird_mob.gd" id="1_0285q"]
+[ext_resource type="Texture2D" uid="uid://c7xklkr00k46c" path="res://Art/Bat/Spritesheets/Blue_Flying.png" id="2_gw6xl"]
+[ext_resource type="Texture2D" uid="uid://bqqsee7drtk25" path="res://icon.svg" id="3_do41u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4sln3"]
+size = Vector2(30, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv11n"]
+atlas = ExtResource("2_gw6xl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dsg5"]
+atlas = ExtResource("2_gw6xl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7va7"]
+atlas = ExtResource("2_gw6xl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rli43"]
+atlas = ExtResource("2_gw6xl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjlo6"]
+atlas = ExtResource("2_gw6xl")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggj3o"]
+atlas = ExtResource("2_gw6xl")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2dl5e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv11n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dsg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7va7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rli43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjlo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggj3o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0mdr"]
+size = Vector2(32, 28)
+
+[node name="BatMobFull" type="CharacterBody2D"]
+script = ExtResource("1_0285q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4sln3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_2dl5e")
+frame_progress = 0.702652
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(365, 148)
+scale = Vector2(0.195313, 0.195313)
+texture = ExtResource("3_do41u")
+
+[node name="mob" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mob"]
+shape = SubResource("RectangleShape2D_f0mdr")
+
+[node name="Timer" type="Timer" parent="."]

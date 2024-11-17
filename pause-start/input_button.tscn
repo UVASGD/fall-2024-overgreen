@@ -49,3 +49,5 @@ theme_override_fonts/font = ExtResource("1_0knke")
 theme_override_font_sizes/font_size = 7
 text = "input key"
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

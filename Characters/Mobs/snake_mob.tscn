@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cm6d2vmg8kqli"]
+[gd_scene load_steps=18 format=3 uid="uid://cm6d2vmg8kqli"]
 
 [ext_resource type="Script" path="res://snake_mob.gd" id="1_nfeha"]
 [ext_resource type="Texture2D" uid="uid://cvq3vdudgpaew" path="res://Art/Slime_Sprite_Sheet.png" id="2_6cdwe"]
@@ -91,7 +91,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tv8v3"]
-radius = 9.05539
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r1djc"]
+radius = 13.0
 
 [node name="SnakeMob" type="CharacterBody2D"]
 script = ExtResource("1_nfeha")
@@ -100,6 +103,7 @@ script = ExtResource("1_nfeha")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_u4y0o")
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_0a27e")
 animation = &"Slime"
 frame = 3
@@ -107,3 +111,8 @@ frame_progress = 0.896863
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tv8v3")
+
+[node name="mob" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mob"]
+shape = SubResource("CircleShape2D_r1djc")

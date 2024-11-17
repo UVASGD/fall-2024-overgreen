@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqmtyc1n5fjj"]
+[gd_scene load_steps=3 format=3 uid="uid://bqmtyc1n5fjj"]
 
 [ext_resource type="PackedScene" uid="uid://bi1eo2h84efqv" path="res://pause-start/input_button.tscn" id="1_bn43t"]
+[ext_resource type="AudioStream" uid="uid://ddsvg3bminghv" path="res://Music/Overgreen Theme Demo 2.mp3" id="2_0iwv5"]
 
 [node name="PanelContainer" type="PanelContainer"]
 anchors_preset = 8
@@ -35,3 +36,7 @@ size_flags_horizontal = 3
 
 [node name="InputButton" parent="MarginContainer/controlContainer/ScrollContainer/ActionList" instance=ExtResource("1_bn43t")]
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0iwv5")
+autoplay = true

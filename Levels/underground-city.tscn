@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dc40atxfoc5ba"]
+[gd_scene load_steps=7 format=4 uid="uid://dc40atxfoc5ba"]
 
 [ext_resource type="Texture2D" uid="uid://cykgiowecvox3" path="res://Art/underground 2.png" id="1_il5r3"]
 [ext_resource type="Texture2D" uid="uid://denxtg2jajhr2" path="res://Art/Jungle Asset Pack/jungle tileset/files/jungle tileset.png" id="1_wxekc"]
+[ext_resource type="PackedScene" uid="uid://ddvepnfuw6g8n" path="res://Characters/hook.tscn" id="3_7g4kp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kw4ji"]
 texture = ExtResource("1_wxekc")
@@ -641,9 +642,13 @@ texture = ExtResource("1_wxekc")
 38:20/0 = 0
 38:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_taypp"]
+scenes/1/scene = ExtResource("3_7g4kp")
+
 [sub_resource type="TileSet" id="TileSet_hlqrs"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kw4ji")
+sources/1 = SubResource("TileSetScenesCollectionSource_taypp")
 
 [node name="Node" type="Node2D"]
 

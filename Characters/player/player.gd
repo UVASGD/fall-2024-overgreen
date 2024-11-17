@@ -22,8 +22,8 @@ class_name Player
 # Remove @onready and initialize the variables in _ready()
 var animation_handler: SpriteAnimation
 #var dash_handler: PlayerDash
-#var basic_movement_handler: PlayerBasicMovement
-#var input_buffer_manager: InputBufferManager
+var basic_movement_handler: PlayerBasicMovement
+var input_buffer_manager: InputBufferManager
 
 func _ready():
 	animation_handler = SpriteAnimation.new($AnimatedSprite2D)
@@ -121,14 +121,19 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("dash"):
 		if(dash_timer.is_stopped()):
+			self.animated_sprite.play("dash")
+			self.animation_handler.set_state("dash")
 			VELOCITY += 400 * direction.x
 			dash_timer.start()
 			await dash_timer.timeout
+			# -- GET DASH ANIMATION TO STOP --
 
 	if is_on_wall_only() and Input.is_action_just_pressed("jump"):
 		var wall_normal = get_wall_normal()
 		VELOCITY = wall_normal.x * 200
 		velocity.y = -200
+		self.animated_sprite.play("wall_jump")
+		self.animation_handler.set_state("wall_jump")
 
 	direction = Input.get_vector("left", "right", "up", "down")
 	SPEED = self.direction.x
@@ -197,15 +202,15 @@ func land():
 	animation_handler.set_state("jump_end")
 	animation_handler.tick(direction)
 	
-	#var current_velocity_y = basic_movement_handler.get_velocity().y 
+	var current_velocity_y = basic_movement_handler.get_velocity().y 
 	
 	match player_state:
 		GROUND_STATE.GROUNDED:
 			if not is_on_floor():
 				player_state = GROUND_STATE.MIDAIR
-		#GROUND_STATE.MIDAIR:
-			#if (current_velocity_y > recorded_velocity_y):
-				#recorded_velocity_y = current_velocity_y  # Record the maximum velocity while in the air
+		GROUND_STATE.MIDAIR:
+			if (current_velocity_y > recorded_velocity_y):
+				recorded_velocity_y = current_velocity_y  # Record the maximum velocity while in the air
 			if is_on_floor():
 				player_state = GROUND_STATE.TOUCHDOWN
 		GROUND_STATE.TOUCHDOWN:
@@ -246,7 +251,6 @@ func _process(_delta):
 	#animation_handler.set_state("jump_end")
 
 func apply_fall_damage(velocity):
-
 	if (velocity > 280):
 		fallDamage = ((velocity - 280)/30)
 		updateHealth(currentHealth - fallDamage)
@@ -270,7 +274,7 @@ func update_health_bar_color():
 
 func _on_hitbox_area_entered(area):
 	#print(area.name)
-	if area.name == "mob1":
+	if area.name == "mob":
 		healthDeduction = randf_range(0.8, 1)
 		currentHealth -= healthDeduction
 	updateHealth(currentHealth)
