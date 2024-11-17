@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://pause-start/DeliusSwashCaps-Regular.ttf" id="2_uxuyj"]
 [ext_resource type="Texture2D" uid="uid://d0v11sf2n5l0b" path="res://pause-start/Screenshot 2024-11-15 at 8.22.02 PM.png" id="3_0s13a"]
 [ext_resource type="Texture2D" uid="uid://df3tbptc2pfxa" path="res://Art/treeBG.png" id="3_5ll53"]
-[ext_resource type="AudioStream" uid="uid://ddsvg3bminghv" path="res://Music/Overgreen Theme Demo 2.mp3" id="5_mgm77"]
+[ext_resource type="AudioStream" uid="uid://cbp7o4cyounhw" path="res://Music/lil tune.mp3" id="5_a6dw5"]
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -69,7 +69,7 @@ scale = Vector2(0.313, 0.313)
 texture = ExtResource("3_5ll53")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_mgm77")
+stream = ExtResource("5_a6dw5")
 autoplay = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Back" to="." method="_on_back_pressed"]

@@ -28,10 +28,6 @@ script = ExtResource("1_tlwby")
 
 [node name="Hooks" type="Node2D" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_j550u")
-autoplay = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_x3u2m")]
@@ -129,7 +125,7 @@ visible = false
 position = Vector2(507, 352)
 
 [node name="Player" parent="." instance=ExtResource("3_u06ib")]
-position = Vector2(76, 91)
+position = Vector2(90, 90)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -141,7 +137,7 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ft4t2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(76, 91)
+position = Vector2(90, 90)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -153,53 +149,51 @@ position = Vector2(781, 442)
 [node name="SlimeMob2" parent="." instance=ExtResource("18_0o0ap")]
 position = Vector2(417, 873)
 
+[node name="SlimeMob4" parent="." instance=ExtResource("18_0o0ap")]
+position = Vector2(8502, -266)
+
+[node name="SlimeMob5" parent="." instance=ExtResource("18_0o0ap")]
+position = Vector2(8699, 37)
+
+[node name="SlimeMob6" parent="." instance=ExtResource("18_0o0ap")]
+position = Vector2(9097, 39)
+
 [node name="SlimeMob3" parent="." instance=ExtResource("18_0o0ap")]
 position = Vector2(560, 1114)
+
+[node name="SlimeMob7" parent="." instance=ExtResource("18_0o0ap")]
+position = Vector2(4960, 917)
 
 [node name="BatMobFull" parent="." instance=ExtResource("19_0uxw6")]
 position = Vector2(1063, 1040)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 359.0
-offset_top = 499.0
-offset_right = 400.0
-offset_bottom = 522.0
-text = "Hook"
+[node name="BatMobFull2" parent="." instance=ExtResource("19_0uxw6")]
+position = Vector2(1334, 214)
 
-[node name="Label3" type="Label" parent="."]
-offset_left = 1677.0
-offset_top = 375.0
-offset_right = 1718.0
-offset_bottom = 398.0
-text = "Hook"
+[node name="BatMobFull3" parent="." instance=ExtResource("19_0uxw6")]
+position = Vector2(2876, 121)
 
-[node name="Label4" type="Label" parent="."]
-offset_left = 3844.0
-offset_top = 245.0
-offset_right = 3885.0
-offset_bottom = 268.0
-text = "Hook"
+[node name="BatMobFull4" parent="." instance=ExtResource("19_0uxw6")]
+position = Vector2(3236, 253)
 
-[node name="Label5" type="Label" parent="."]
-offset_left = 5190.0
-offset_top = -394.0
-offset_right = 5231.0
-offset_bottom = -371.0
-text = "Hook"
+[node name="BatMobFull5" parent="." instance=ExtResource("19_0uxw6")]
+position = Vector2(3928, 632)
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 952.0
-offset_top = 725.0
-offset_right = 993.0
-offset_bottom = 748.0
-text = "Hook"
+[node name="BatMobFull6" parent="." instance=ExtResource("19_0uxw6")]
+position = Vector2(5137, 199)
 
-[node name="Label6" type="Label" parent="."]
-offset_left = 2868.0
-offset_top = 692.0
-offset_right = 2909.0
-offset_bottom = 715.0
-text = "Hook"
+[node name="BatMobFull7" parent="." instance=ExtResource("19_0uxw6")]
+position = Vector2(6661, -596)
+
+[node name="BatMobFull8" parent="." instance=ExtResource("19_0uxw6")]
+position = Vector2(9820, -279)
+
+[node name="BatMobFull9" parent="." instance=ExtResource("19_0uxw6")]
+position = Vector2(7938, -526)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_j550u")
+autoplay = true
 
 [connection signal="area_entered" from="Player/hitbox" to="Player" method="_on_hitbox_area_entered"]
 

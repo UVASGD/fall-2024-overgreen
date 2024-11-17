@@ -13,7 +13,16 @@ var hookStarts = [
 	Vector2(1677, 375),
 	Vector2(3844, 245),
 	Vector2(5190, -394),
-	Vector2(2868, 692)
+	Vector2(2868, 692),
+	Vector2(6259, -635),
+	Vector2(6495, -490),
+	Vector2(7123, -763),
+	Vector2(7186, -474),
+	Vector2(7186, -474),
+	Vector2(8124, -459),
+	Vector2(8860, -522),
+	Vector2(9482, -235),
+	Vector2(7345, -506)
 ]
 	
 func _create_hooks():
