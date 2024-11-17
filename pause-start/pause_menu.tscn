@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://s4sxgwrmwdsg"]
+[gd_scene load_steps=12 format=3 uid="uid://s4sxgwrmwdsg"]
 
 [ext_resource type="Script" path="res://pause-start/pause_menu.gd" id="1_5um6b"]
 [ext_resource type="Shader" path="res://pause-start/pause-menu.gdshader" id="2_fgmx2"]
 [ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://pause-start/DeliusSwashCaps-Regular.ttf" id="3_gmnj7"]
 [ext_resource type="PackedScene" uid="uid://bvi37umd6qho6" path="res://pause-start/input_settings.tscn" id="4_s2bf1"]
-[ext_resource type="AudioStream" uid="uid://pp1pw7rrpkmt" path="res://Music/Overgreen Underground City Final mp3.mp3" id="5_qelyu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_og1m7"]
 shader = ExtResource("2_fgmx2")
@@ -694,10 +693,6 @@ libraries = {
 }
 
 [node name="musicPlayer" type="AudioStreamPlayer" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_qelyu")
-autoplay = true
 
 [connection signal="pressed" from="pause/MarginContainer/pauseContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="pause/MarginContainer/pauseContainer/Options" to="." method="_on_options_pressed"]

@@ -246,7 +246,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_62mem")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash",
 "speed": 5.0
 }, {
@@ -423,7 +423,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3j4ww")
 }],
-"loop": true,
+"loop": false,
 "name": &"wall_jump",
 "speed": 5.0
 }]
@@ -447,9 +447,9 @@ metadata/_edit_group_ = true
 position = Vector2(-13, -12)
 scale = Vector2(0.55, 0.53)
 sprite_frames = SubResource("SpriteFrames_sk2h2")
-animation = &"jump_start"
+animation = &"jump_end"
 autoplay = "idle"
-frame = 8
+frame = 4
 frame_progress = 1.0
 centered = false
 

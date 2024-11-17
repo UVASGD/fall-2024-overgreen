@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b423o7w3i0hda"]
+[gd_scene load_steps=5 format=3 uid="uid://b423o7w3i0hda"]
 
 [ext_resource type="Script" path="res://pause-start/options_menu.gd" id="1_c7l6f"]
 [ext_resource type="Texture2D" uid="uid://df3tbptc2pfxa" path="res://Art/treeBG.png" id="2_orbwd"]
 [ext_resource type="FontFile" uid="uid://l13vsimldkel" path="res://pause-start/DeliusSwashCaps-Regular.ttf" id="3_pwt6n"]
-[ext_resource type="AudioStream" uid="uid://ddsvg3bminghv" path="res://Music/Overgreen Theme Demo 2.mp3" id="5_c1v1f"]
 [ext_resource type="Texture2D" uid="uid://butnn5t815m25" path="res://pause-start/Overgreen_Logo_Light.png" id="5_dvnpy"]
 
 [node name="OptionsMenu" type="Control"]
@@ -80,10 +79,6 @@ text = "Back"
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 8
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_c1v1f")
-autoplay = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Fulls" to="." method="_on_fulls_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

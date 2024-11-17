@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://qprqin7hp862"]
+[gd_scene load_steps=7 format=3 uid="uid://qprqin7hp862"]
 
 [ext_resource type="FontFile" uid="uid://hp424lhausur" path="res://pause-start/TwinkleStar-Regular.ttf" id="1_3irqd"]
+[ext_resource type="Texture2D" uid="uid://b1vdtqfdi175o" path="res://Art/forest-level-background.png" id="1_sw78c"]
 [ext_resource type="Script" path="res://pause-start/end-game.gd" id="2_oom7b"]
 [ext_resource type="AudioStream" uid="uid://ddsvg3bminghv" path="res://Music/Overgreen Theme Demo 2.mp3" id="3_rkfxm"]
 
@@ -25,6 +26,11 @@ layout_mode = 0
 offset_right = 643.0
 offset_bottom = 414.0
 color = Color(0.0588235, 0.619608, 0.501961, 1)
+
+[node name="Forest-level-background" type="Sprite2D" parent="."]
+position = Vector2(246.5, 129)
+scale = Vector2(0.324375, 0.322222)
+texture = ExtResource("1_sw78c")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

@@ -7,8 +7,8 @@ class_name Player
 @onready var VELOCITY : float = 0.0
 
 @export var speed: float = 125.0
-@export var jump_velocity: float = -150.0
-@export var double_jump_velocity: float = -150.0
+@export var jump_velocity: float = -125.0
+#@export var double_jump_velocity: float = -300.0
 @export var dash_speed: float = 200;
 @export var dash_time: float = 0.25;
 @export var dash_num_charges: float = 2.0;
@@ -110,19 +110,21 @@ func _physics_process(delta):
 	#self.velocity.x = move_toward(self.velocity.x, 0, self.speed)
 	#self.velocity.x = sign(self.direction.x) * self.speed # project vector to x axis with sign()
 	if self.position.y > 1200:
-		get_tree().change_scene_to_file("res://pause-start/game-over.tscn")
+		# player falls off map
+		get_tree().change_scene_to_file("res://pause-start/game-over-abyss-fall.tscn")
 	
 	if self.position.x > 9950:
+		# player completes the game
 		get_tree().change_scene_to_file("res://pause-start/end-screen.tscn")
 	
 	if remaining_jumps < 2 and is_on_floor():
 		remaining_jumps = 2
 	
 	if Input.is_action_just_pressed("jump") and remaining_jumps > 0:
-		remaining_jumps -= 1
-		self.velocity.y = self.jump_velocity
 		self.animated_sprite.play("jump_start")
 		self.animation_handler.set_state("jump_start")
+		remaining_jumps -= 1
+		self.velocity.y = self.jump_velocity
 	
 	if Input.is_action_just_pressed("dash"):
 		if(dash_timer.is_stopped()):
@@ -134,11 +136,11 @@ func _physics_process(delta):
 			# -- GET DASH ANIMATION TO STOP --
 
 	if is_on_wall_only() and Input.is_action_just_pressed("jump"):
+		self.animated_sprite.play("wall_jump")
+		self.animation_handler.set_state("wall_jump")
 		var wall_normal = get_wall_normal()
 		VELOCITY = wall_normal.x * 200
 		velocity.y = -200
-		self.animated_sprite.play("wall_jump")
-		self.animation_handler.set_state("wall_jump")
 
 	direction = Input.get_vector("left", "right", "up", "down")
 	SPEED = self.direction.x
@@ -161,6 +163,8 @@ func _physics_process(delta):
 		
 		else:
 			if wasGrappling:
+				self.animated_sprite.play("jump_end")
+				self.animation_handler.set_state("jump_end")
 				yvel = angVel * radius * cos(theta + (PI/2)) * delta
 				xvel = -1 * angVel * radius * sin(theta + (PI/2)) * delta
 				position.y += yvel
@@ -204,7 +208,7 @@ func _physics_process(delta):
 	queue_redraw()
 	
 func land():
-	animation_handler.set_state("jump_end")
+	#animation_handler.set_state("jump_end")
 	animation_handler.tick(direction)
 	
 	var current_velocity_y = basic_movement_handler.get_velocity().y 
@@ -231,6 +235,8 @@ func _draw():
 		#draw_line(Vector2(0, 0), -position + hookPos, Color.BLACK, 5.0)
 		get_node("Line2D").points[1] = Vector2(-position + hookPos)
 		get_node("Line2D").visible = true
+		self.animated_sprite.play("swing")
+		self.animation_handler.set_state("swing")
 
 func reset(delta):
 	wasGrappling = isGrappling
