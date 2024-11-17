@@ -109,6 +109,8 @@ var player_state = GROUND_STATE.GROUNDED
 func _physics_process(delta):
 	#self.velocity.x = move_toward(self.velocity.x, 0, self.speed)
 	#self.velocity.x = sign(self.direction.x) * self.speed # project vector to x axis with sign()
+	if self.position.y > 1200:
+		get_tree().change_scene_to_file("res://pause-start/game-over.tscn")
 	
 	if remaining_jumps < 2 and is_on_floor():
 		remaining_jumps = 2
@@ -278,3 +280,6 @@ func _on_hitbox_area_entered(area):
 		healthDeduction = randf_range(0.8, 1)
 		currentHealth -= healthDeduction
 	updateHealth(currentHealth)
+	print(currentHealth)
+	if currentHealth <= 0.0:
+		get_tree().change_scene_to_file("res://pause-start/game-over.tscn")

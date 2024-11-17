@@ -429,7 +429,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lifr"]
-size = Vector2(18, 34.5)
+size = Vector2(12, 28)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8plwf")
@@ -454,7 +454,7 @@ frame_progress = 1.0
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 4)
+position = Vector2(4, 7)
 shape = SubResource("RectangleShape2D_4lifr")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

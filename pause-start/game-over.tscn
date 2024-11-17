@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3r5tnu6mlrot"]
+
+[ext_resource type="FontFile" uid="uid://hp424lhausur" path="res://pause-start/TwinkleStar-Regular.ttf" id="1_m1lhy"]
+[ext_resource type="Script" path="res://pause-start/game_over.gd" id="3_1glsn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tkgau"]
+font = ExtResource("1_m1lhy")
+font_size = 55
+
+[sub_resource type="Theme" id="Theme_usvm3"]
+default_font = ExtResource("1_m1lhy")
+default_font_size = 25
+
+[node name="Game-over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 643.0
+offset_bottom = 414.0
+color = Color(0.0588235, 0.619608, 0.501961, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 48.0
+offset_right = 379.0
+offset_bottom = 151.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_tkgau")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 164.0
+offset_right = 308.0
+offset_bottom = 208.0
+theme = SubResource("Theme_usvm3")
+text = "Restart"
+script = ExtResource("3_1glsn")

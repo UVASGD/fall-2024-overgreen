@@ -14,6 +14,7 @@ func _ready():
 	animation_handler = SpriteAnimation.new($AnimatedSprite2D)
 	animated_sprite.play("default")
 	animation_handler.set_state("default")
+	#print("(x,y) position: ", self.position.x, self.position.y)
 
 func _process(delta):
 	position += dir * speed * delta
