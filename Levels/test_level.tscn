@@ -129,7 +129,7 @@ visible = false
 position = Vector2(507, 352)
 
 [node name="Player" parent="." instance=ExtResource("3_u06ib")]
-position = Vector2(9879, -198)
+position = Vector2(76, 91)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -141,7 +141,7 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ft4t2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(9879, -198)
+position = Vector2(76, 91)
 process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -192,6 +192,13 @@ offset_left = 952.0
 offset_top = 725.0
 offset_right = 993.0
 offset_bottom = 748.0
+text = "Hook"
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 2868.0
+offset_top = 692.0
+offset_right = 2909.0
+offset_bottom = 715.0
 text = "Hook"
 
 [connection signal="area_entered" from="Player/hitbox" to="Player" method="_on_hitbox_area_entered"]
