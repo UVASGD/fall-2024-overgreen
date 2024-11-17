@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddj6tr8qafa1q"]
+[gd_scene load_steps=17 format=3 uid="uid://ddj6tr8qafa1q"]
 
 [ext_resource type="Script" path="res://snake_mob.gd" id="1_o3vlj"]
-[ext_resource type="Texture2D" uid="uid://bqqsee7drtk25" path="res://icon.svg" id="2_aaqef"]
 [ext_resource type="Texture2D" uid="uid://cvq3vdudgpaew" path="res://Art/Slime_Sprite_Sheet.png" id="2_jotyq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sln3"]
@@ -93,7 +92,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0mdr"]
-size = Vector2(26, 22)
+size = Vector2(31, 24)
 
 [node name="SlimeMobFull" type="CharacterBody2D"]
 script = ExtResource("1_o3vlj")
@@ -109,16 +108,10 @@ sprite_frames = SubResource("SpriteFrames_2dl5e")
 frame = 10
 frame_progress = 0.610339
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(365, 148)
-scale = Vector2(0.195313, 0.195313)
-texture = ExtResource("2_aaqef")
-
 [node name="mob" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mob"]
-position = Vector2(0, -1)
+position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_f0mdr")
 
 [node name="Timer" type="Timer" parent="."]

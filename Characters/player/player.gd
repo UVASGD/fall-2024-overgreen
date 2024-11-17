@@ -112,6 +112,9 @@ func _physics_process(delta):
 	if self.position.y > 1200:
 		get_tree().change_scene_to_file("res://pause-start/game-over.tscn")
 	
+	if self.position.x > 9950:
+		get_tree().change_scene_to_file("res://pause-start/end-screen.tscn")
+	
 	if remaining_jumps < 2 and is_on_floor():
 		remaining_jumps = 2
 	
@@ -275,7 +278,7 @@ func update_health_bar_color():
 	health_bar.theme.set_stylebox("fill", "ProgressBar", fill_style)
 
 func _on_hitbox_area_entered(area):
-	#print(area.name)
+	print(area.name)
 	if area.name == "mob":
 		healthDeduction = randf_range(0.8, 1)
 		currentHealth -= healthDeduction

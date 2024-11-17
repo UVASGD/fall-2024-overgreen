@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3r5tnu6mlrot"]
+[gd_scene load_steps=6 format=3 uid="uid://qprqin7hp862"]
 
-[ext_resource type="FontFile" uid="uid://hp424lhausur" path="res://pause-start/TwinkleStar-Regular.ttf" id="1_m1lhy"]
-[ext_resource type="Script" path="res://pause-start/game_over.gd" id="3_1glsn"]
-[ext_resource type="AudioStream" uid="uid://ddsvg3bminghv" path="res://Music/Overgreen Theme Demo 2.mp3" id="3_8arfd"]
+[ext_resource type="FontFile" uid="uid://hp424lhausur" path="res://pause-start/TwinkleStar-Regular.ttf" id="1_3irqd"]
+[ext_resource type="Script" path="res://pause-start/end-game.gd" id="2_oom7b"]
+[ext_resource type="AudioStream" uid="uid://ddsvg3bminghv" path="res://Music/Overgreen Theme Demo 2.mp3" id="3_rkfxm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tkgau"]
-font = ExtResource("1_m1lhy")
-font_size = 55
+font = ExtResource("1_3irqd")
+font_size = 25
 
 [sub_resource type="Theme" id="Theme_usvm3"]
-default_font = ExtResource("1_m1lhy")
+default_font = ExtResource("1_3irqd")
 default_font_size = 25
 
 [node name="Game-over" type="Control"]
@@ -28,25 +28,26 @@ color = Color(0.0588235, 0.619608, 0.501961, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 108.0
+offset_left = 34.0
 offset_top = 48.0
-offset_right = 379.0
+offset_right = 456.0
 offset_bottom = 151.0
-text = "Game Over"
+text = "Congratulations, you completed the game!
+Thank you for playing!"
 label_settings = SubResource("LabelSettings_tkgau")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 188.0
-offset_top = 164.0
-offset_right = 308.0
-offset_bottom = 208.0
+offset_left = 152.0
+offset_top = 162.0
+offset_right = 327.0
+offset_bottom = 206.0
 theme = SubResource("Theme_usvm3")
-text = "Restart"
-script = ExtResource("3_1glsn")
+text = "Credits"
+script = ExtResource("2_oom7b")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_8arfd")
+stream = ExtResource("3_rkfxm")
 autoplay = true
